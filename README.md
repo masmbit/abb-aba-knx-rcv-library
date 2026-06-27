@@ -26,11 +26,24 @@ However, real-world execution inside the ABA/S1.2.1 controller introduces two ma
 
 ---
 
-## 📦 Included Function Blocks (Categorized by Importance)
+## 📦 Included Function Blocks
+
+### 🗂️ Quick Index (Table of Contents)
+
+| 🔹 Pulse Blocks (Impuls) | 🔹 Timer Blocks (Timer) | 🔹 Temperature Control (Temperatur) |
+| :--- | :--- | :--- |
+| 1. [ReTrigger-Rcv](#1-retrigger-rcv) | 4. [On-Delay-Rcv](#4-on-delay-rcv) | 9. [Hysteresis-Rcv](#9-hysteresis-rcv) |
+| 2. [Generate-Rcv](#2-generate-rcv) | 5. [Off-Delay-Rcv](#5-off-delay-rcv) | |
+| 3. [OnOff-Detect-Rcv](#3-onoff-detect-rcv) | 6. [OnOff-Delay-Rcv](#6-onoff-delay-rcv) | |
+| | 7. [OnOff-Delay-Trigger-Rcv](#7-onoff-delay-trigger-rcv) | |
+| | 8. [OnTime-Limit-Rcv](#8-ontime-limit-rcv) | |
+
+---
 
 ### 🔹 Pulse Blocks (Impuls)
 
-#### 1. [ReTrigger-Rcv](fb/ReTrigger-Rcv.fbxml)
+<a name="1-retrigger-rcv"></a>
+#### 1. ReTrigger-Rcv
 The core architectural block of this library. An incoming Rcv pulse is required to evaluate the input state. It is designed to be placed at every Output Gate to eliminate timing race conditions where the original KNX bus pulse arrives too early for slow internal logic calculations.
 * **Standard Mode:** Forwards the incoming input pulse directly to the output to trigger the Gate immediately.
 * **Safety/Delayed Pulse ([ReTriggerDelay-Rcv](fb/ReTriggerDelay-Rcv.fbxml) Variant):** Automatically pushes a second 1-second pulse after the specified delay time. This guarantees that even if a complex calculation takes a few milliseconds longer, the final value is safely captured and forced onto the KNX bus.
@@ -44,7 +57,8 @@ The core architectural block of this library. An incoming Rcv pulse is required 
 
 ---
 
-#### 2. [Generate-Rcv](fb/Generate-Rcv.fbxml)
+<a name="2-generate-rcv"></a>
+#### 2. Generate-Rcv
 Generates a periodic 1-second Rcv pulse at the output as long as the Enable input is HIGH. Useful for watchdog functions.
 * **Example:** Specifying **3600** for *Delay Time* will generate a Rcv pulse **every hour**.
 * **Technical Note / Tip:** To ensure the generator starts automatically after a system boot, connect the Enable input to the output of a Calendar block output. If the Enable input is permanently wired to static HIGH, the generator will not auto-start after a reboot without external interaction.
@@ -58,7 +72,8 @@ Generates a periodic 1-second Rcv pulse at the output as long as the Enable inpu
 
 ---
 
-#### 3. [OnOff-Detect-Rcv](fb/OnOff-Detect-Rcv.fbxml)
+<a name="3-onoff-detect-rcv"></a>
+#### 3. OnOff-Detect-Rcv
 Forward the input signal changes to the output and additionally generate a Rcv pulse. Perfectly suited for triggering subsequent gates on any state transition.
   * **IN:** `I [Bit] (signal)`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
@@ -72,7 +87,8 @@ Forward the input signal changes to the output and additionally generate a Rcv p
 
 ### 🔹 Timer Blocks (Timer)
 
-#### 4. [On-Delay-Rcv](fb/On-Delay-Rcv.fbxml)
+<a name="4-on-delay-rcv"></a>
+#### 4. On-Delay-Rcv
 Standard ON-delay. An incoming Rcv pulse is required to evaluate the input state. The output switches to HIGH only if the input remains HIGH for the specified On-Delay time. A LOW state at the input switches the output to LOW immediately.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
@@ -84,7 +100,8 @@ Standard ON-delay. An incoming Rcv pulse is required to evaluate the input state
 
 ---
 
-#### 5. [Off-Delay-Rcv](fb/Off-Delay-Rcv.fbxml)
+<a name="5-off-delay-rcv"></a>
+#### 5. Off-Delay-Rcv
 Standard OFF-delay. An incoming Rcv pulse is required to evaluate the input state. A HIGH state at the input switches the output to HIGH immediately. The output switches back to LOW only if the input remains LOW for the specified Off-Delay time.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
@@ -96,7 +113,8 @@ Standard OFF-delay. An incoming Rcv pulse is required to evaluate the input stat
 
 ---
 
-#### 6. [OnOff-Delay-Rcv](fb/OnOff-Delay-Rcv.fbxml)
+<a name="6-onoff-delay-rcv"></a>
+#### 6. OnOff-Delay-Rcv
 Standard interlocked ON/OFF delay. An incoming Rcv pulse is required to evaluate the input state. The output switches to HIGH only after the input remains HIGH for the specified On-Delay time. To switch it back to LOW, the input must remain LOW for the specified Off-Delay time. Short signal fluctuations at the input are filtered out and do not affect the output.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
@@ -108,7 +126,8 @@ Standard interlocked ON/OFF delay. An incoming Rcv pulse is required to evaluate
 
 ---
 
-#### 7. [OnOff-Delay-Trigger-Rcv](fb/OnOff-Delay-Trigger-Rcv.fbxml)
+<a name="7-onoff-delay-trigger-rcv"></a>
+#### 7. OnOff-Delay-Trigger-Rcv
 An incoming Rcv pulse is required to evaluate the input state. If the input remains ON for the specified On-Delay time and then turns OFF, the output switches ON for the specified Off-Delay time.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
@@ -120,7 +139,8 @@ An incoming Rcv pulse is required to evaluate the input state. If the input rema
 
 ---
 
-#### 8. [OnTime-Limit-Rcv](fb/OnTime-Limit-Rcv.fbxml)
+<a name="8-ontime-limit-rcv"></a>
+#### 8. OnTime-Limit-Rcv
 Limits the HIGH state of the output to the specified timeout period. An incoming Rcv pulse is required to evaluate the input state. After the timeout expires, the output switches to LOW even if the input remains HIGH. Forwards incoming Rcv pulses from the input to the output, and generates an additional Rcv pulse whenever the output state changes.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `Timeout [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
@@ -134,7 +154,8 @@ Limits the HIGH state of the output to the specified timeout period. An incoming
 
 ### 🔹 Temperature Control (Temperatur)
 
-#### 9. [Hysteresis-Rcv](fb/Hysteresis-Rcv.fbxml)
+<a name="9-hysteresis-rcv"></a>
+#### 9. Hysteresis-Rcv
 Controls the system using an absolute switch-on point and a relative switch-off point based on the hysteresis values. Provides both direct (Cooling) and inverted (Heating) outputs.
 
 * **Cooling Output (ON) / Heating Output (OFF):** Current Temperature ≥ Target + On Hysteresis
