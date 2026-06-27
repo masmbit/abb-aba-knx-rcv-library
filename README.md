@@ -30,59 +30,95 @@ However, real-world execution inside the ABA/S1.2.1 controller introduces two ma
 
 ### 🔹 Pulse Blocks (Impuls)
 
-#### 1. ReTrigger-Rcv
+#### 1. [ReTrigger-Rcv](fb/ReTrigger-Rcv.fbxml)
 The core architectural block of this library. An incoming Rcv pulse is required to evaluate the input state. It is designed to be placed at every Output Gate to eliminate timing race conditions where the original KNX bus pulse arrives too early for slow internal logic calculations.
 * **Standard Mode:** Forwards the incoming input pulse directly to the output to trigger the Gate immediately.
-* **Safety/Delayed Pulse (ReTriggerDelay-Rcv Variant):** Automatically pushes a second 1-second pulse after the specified delay time. This guarantees that even if a complex calculation takes a few milliseconds longer, the final value is safely captured and forced onto the KNX bus.
+* **Safety/Delayed Pulse ([ReTriggerDelay-Rcv](fb/ReTriggerDelay-Rcv.fbxml) Variant):** Automatically pushes a second 1-second pulse after the specified delay time. This guarantees that even if a complex calculation takes a few milliseconds longer, the final value is safely captured and forced onto the KNX bus.
   * **IN:** `Rcv [Bit]`, `Delay [sec]`
   * **OUT:** `Rcv [Bit]`
+  * **Downloads:** [📄 KNX Example File](example/ReTrigger-Rcv.xml)
 
-#### 2. Generate-Rcv
+![ReTrigger-Rcv Example](example/ReTrigger-Rcv.jpg)
+
+---
+
+#### 2. [Generate-Rcv](fb/Generate-Rcv.fbxml)
 Generates a periodic 1-second Rcv pulse at the output as long as the Enable input is HIGH. Useful for watchdog functions.
 * **Example:** Specifying **3600** for *Delay Time* will generate a Rcv pulse **every hour**.
 * **Technical Note / Tip:** To ensure the generator starts automatically after a system boot, connect the Enable input to the output of a Calendar block output. If the Enable input is permanently wired to static HIGH, the generator will not auto-start after a reboot without external interaction.
   * **IN:** `Enable [Bit]`, `Delay Time [sec] (Internally multiplied by 2)`
   * **OUT:** `Rcv [Bit]`
+  * **Downloads:** [📄 KNX Example File](example/Generate-Rcv.xml)
 
-#### 3. OnOff-Detect-Rcv
+![Generate-Rcv Example](example/Generate-Rcv.jpg)
+
+---
+
+#### 3. [OnOff-Detect-Rcv](fb/OnOff-Detect-Rcv.fbxml)
 Forward the input signal changes to the output and additionally generate a Rcv pulse. Perfectly suited for triggering subsequent gates on any state transition.
   * **IN:** `I [Bit] (signal)`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
+  * **Downloads:** [📄 KNX Example File](example/OnOff-Detect-Rcv.xml)
+
+![OnOff-Detect-Rcv Example](example/OnOff-Detect-Rcv.jpg)
 
 ---
 
 ### 🔹 Timer Blocks (Timer)
 
-#### 4. On-Delay-Rcv
+#### 4. [On-Delay-Rcv](fb/On-Delay-Rcv.fbxml)
 Standard ON-delay. An incoming Rcv pulse is required to evaluate the input state. The output switches to HIGH only if the input remains HIGH for the specified On-Delay time. A LOW state at the input switches the output to LOW immediately.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
+  * **Downloads:** [📄 KNX Example File](example/On-Delay-Rcv.xml)
 
-#### 5. Off-Delay-Rcv
+![On-Delay-Rcv Example](example/On-Delay-Rcv.jpg)
+
+---
+
+#### 5. [Off-Delay-Rcv](fb/Off-Delay-Rcv.fbxml)
 Standard OFF-delay. An incoming Rcv pulse is required to evaluate the input state. A HIGH state at the input switches the output to HIGH immediately. The output switches back to LOW only if the input remains LOW for the specified Off-Delay time.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
+  * **Downloads:** [📄 KNX Example File](example/Off-Delay-Rcv.xml)
 
-#### 6. OnOff-Delay-Rcv
+![Off-Delay-Rcv Example](example/Off-Delay-Rcv.jpg)
+
+---
+
+#### 6. [OnOff-Delay-Rcv](fb/OnOff-Delay-Rcv.fbxml)
 Standard interlocked ON/OFF delay. An incoming Rcv pulse is required to evaluate the input state. The output switches to HIGH only after the input remains HIGH for the specified On-Delay time. To switch it back to LOW, the input must remain LOW for the specified Off-Delay time. Short signal fluctuations at the input are filtered out and do not affect the output.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
+  * **Downloads:** [📄 KNX Example File](example/OnOff-Delay-Rcv.xml)
 
-#### 7. OnOff-Delay-Trigger-Rcv
+![OnOff-Delay-Rcv Example](example/OnOff-Delay-Rcv.jpg)
+
+---
+
+#### 7. [OnOff-Delay-Trigger-Rcv](fb/OnOff-Delay-Trigger-Rcv.fbxml)
 An incoming Rcv pulse is required to evaluate the input state. If the input remains ON for the specified On-Delay time and then turns OFF, the output switches ON for the specified Off-Delay time.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
+  * **Downloads:** [📄 KNX Example File](example/OnOff-Delay-Trigger-Rcv.xml)
 
-#### 8. OnTime-Limit-Rcv
+![OnOff-Delay-Trigger-Rcv Example](example/OnOff-Delay-Trigger-Rcv.jpg)
+
+---
+
+#### 8. [OnTime-Limit-Rcv](fb/OnTime-Limit-Rcv.fbxml)
 Limits the HIGH state of the output to the specified timeout period. An incoming Rcv pulse is required to evaluate the input state. After the timeout expires, the output switches to LOW even if the input remains HIGH. Forwards incoming Rcv pulses from the input to the output, and generates an additional Rcv pulse whenever the output state changes.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `Timeout [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
+  * **Downloads:** [📄 KNX Example File](example/OnTime-Limit-Rcv.xml)
+
+![OnTime-Limit-Rcv Example](example/OnTime-Limit-Rcv.jpg)
 
 ---
 
 ### 🔹 Temperature Control (Temperatur)
 
-#### 9. Hysteresis-Rcv
+#### 9. [Hysteresis-Rcv](fb/Hysteresis-Rcv.fbxml)
 Controls the system using an absolute switch-on point and a relative switch-off point based on the hysteresis values. Provides both direct (Cooling) and inverted (Heating) outputs.
 
 * **Cooling Output (ON) / Heating Output (OFF):** Current Temperature ≥ Target + On Hysteresis
@@ -104,14 +140,18 @@ Controls the system using an absolute switch-on point and a relative switch-off 
 
 * **IN:** `Target Temperature [16 Bit]`, `Current Temperature [16 Bit]`, `On Hysteresis [16 Bit] (Kelvin)`, `Off Hysteresis [16 Bit] (Kelvin)`
 * **OUT:** `Cooling [Bit] (signal)`, `Heating [Bit] (signal)`, `Rcv [Bit] (pulse)`
+* **Downloads:** [📄 KNX Example File](example/Hysteresis-Rcv.xml)
+
+![Hysteresis-Rcv Example](example/Hysteresis-Rcv.jpg)
 
 ---
 
 ## 💾 Installation & Usage
-1. Download the exported function blocks (`fbxml`) from the `blocks/` directory in this repository.
-2. Open the **ABB Graphical Logic Editor**.
-3. Import the blocks into your workspace.
-4. Connect your KNX Group Addresses (GAs) to the inputs/outputs.
+1. Download the exported function blocks (`.fbxml`) from the `fb/` directory.
+2. Download corresponding project wires and gate integration files from the `example/` directory.
+3. Open the **ABB Graphical Logic Editor**.
+4. Import the blocks into your workspace.
+5. Connect your KNX Group Addresses (GAs) to the inputs/outputs.
 
 ## 📄 License
 This project is licensed under the MIT License - feel free to use it in all your commercial and private KNX projects!
