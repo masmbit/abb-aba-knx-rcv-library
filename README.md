@@ -46,7 +46,7 @@ However, real-world execution inside the ABA/S1.2.1 controller introduces two ma
 #### 1. ReTrigger-Rcv
 The core architectural block of this library. An incoming Rcv pulse is required to evaluate the input state. It is designed to be placed at every Output Gate to eliminate timing race conditions where the original KNX bus pulse arrives too early for slow internal logic calculations.
 * **Standard Mode:** Forwards the incoming input pulse directly to the output to trigger the Gate immediately.
-* **Safety/Delayed Pulse ([ReTriggerDelay-Rcv](fb/ReTriggerDelay-Rcv.fbxml) Variant):** Automatically pushes a second 1-second pulse after the specified delay time. This guarantees that even if a complex calculation takes a few milliseconds longer, the final value is safely captured and forced onto the KNX bus.
+* **Delayed Pulse ([ReTriggerDelay-Rcv](fb/ReTriggerDelay-Rcv.fbxml) Variant):** Automatically pushes a second 1-second pulse after the specified delay time. This guarantees that even if a complex calculation takes a few seconds longer, the final value is safely captured and forced onto the KNX bus.
   * **IN:** `Rcv [Bit]`, `Delay [sec]`
   * **OUT:** `Rcv [Bit]`
   * **Downloads:**
