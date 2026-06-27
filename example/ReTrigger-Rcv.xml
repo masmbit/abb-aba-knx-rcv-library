@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LogicEngine>
+  <Runtime Version="2">
+    <Composites>
+      <Composite Id="7c667a15-a044-43e8-85ed-e468ec24d68b">
+        <MetaInfo Title="ReTrigger-Rcv" Description="ReTrigger-Rcv v.1.0 (24.06.2026)" Author="manni" LicenseAgreement="Forwards the input pulse to the output&#xD;&#xA;and generates a second 1s pulse at the&#xD;&#xA;output after a 1s delay.&#xD;&#xA;&#xD;&#xA;IN: Rcv [Bit]&#xD;&#xA;OUT: Rcv [Bit]" Version="1.0" Keywords="" />
+        <Content>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</Content>
+      </Composite>
+    </Composites>
+    <Elements>
+      <CompositeElement Id="fcb9ecb7-ff21-4658-ae7e-553497dd3509" Name="ReTrigger-Rcv">
+        <Ins>
+          <In Id="27a3cc65-dcc1-420c-8181-b45014d5b242" Index="0" Visible="true" DataType="1.*" />
+        </Ins>
+        <Outs>
+          <Out Id="2e70516f-9d69-47d5-90c1-6251788f6131" Index="0" Visible="true" DataType="1.*" />
+        </Outs>
+        <Template Id="7c667a15-a044-43e8-85ed-e468ec24d68b">
+          <Id Orig="92c7746c-e681-42f0-af29-3875be5747fb" New="6213228c-d77a-4b6e-bf20-b53752c48c97" />
+          <Id Orig="49362753-ce01-46f4-bfb1-c55b75486bc3" New="d2d472ea-9e56-46e1-ae82-7530d4642056" />
+          <Id Orig="3ec2c50b-e1ea-4e29-9b70-b04dcb5287b0" New="af62900c-c54b-4aff-9417-3d0f31d660ce" />
+          <Id Orig="2ae002d5-afa6-420c-8a3e-f29307243140" New="1f8376d7-f35a-4676-9baa-c628e033abad" />
+          <Id Orig="5c63db70-a4df-4d97-8e17-6bc72d6d262d" New="ba0b2d6a-17d6-4de3-bf36-64ca7e9293f4" />
+          <Id Orig="2de3c8e6-9843-40a6-a251-65b7a0539f8c" New="1c7b6982-7101-4f86-a3de-cc8fd99ac036" />
+        </Template>
+      </CompositeElement>
+      <InElement Id="9cf3a5b0-e270-40cb-9dd2-4383bda7d7fc" Name="KNX IN" DataType="OneBit" CoNumber="1" Datapoint="1">
+        <Outs>
+          <Out Id="d2699c17-eecb-4087-8ef0-3510346ad62f" Index="0" Visible="true" DataType="1.*" />
+          <Out Id="0e31a230-ad2f-4fef-a903-9ffeee53ee55" Index="1" Visible="true" DataType="1.*" />
+        </Outs>
+        <Parameters />
+      </InElement>
+      <GateElement Id="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" Name="GATE">
+        <Ins>
+          <In Id="3070d0f1-36f0-4a27-8e9d-de1c324a749b" Index="0" Visible="true" DataType="1.*" />
+          <In Id="f147789b-e08b-46b3-8797-ee9e8afcec28" Index="1" Visible="true" DataType="1.*" />
+        </Ins>
+        <Outs>
+          <Out Id="e1be51ad-b661-458c-9313-7ce01f0ba557" Index="0" Visible="true" DataType="1.*" />
+        </Outs>
+        <Parameters />
+      </GateElement>
+      <OutElement Id="0c900e54-becf-48b9-bd34-1a27df67a865" Name="KNX OUT" DataType="OneBit" CoNumber="2" Datapoint="1">
+        <Ins>
+          <In Id="87259519-3de1-4eaa-ad32-172bbb0fe38a" Index="0" Visible="true" DataType="1.*" />
+        </Ins>
+        <Parameters />
+      </OutElement>
+    </Elements>
+    <Links>
+      <Link Id="b3e40325-fd3b-4305-b31d-59a814d9567f" ToElement="fcb9ecb7-ff21-4658-ae7e-553497dd3509" ToIndex="0" FromElement="9cf3a5b0-e270-40cb-9dd2-4383bda7d7fc" FromIndex="1" />
+      <Link Id="130571f4-e65c-4277-9be3-9c8ea909fb8d" ToElement="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" ToIndex="0" FromElement="9cf3a5b0-e270-40cb-9dd2-4383bda7d7fc" FromIndex="0" />
+      <Link Id="1d750601-a1d0-47b3-82f7-a7e21f594767" ToElement="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" ToIndex="1" FromElement="fcb9ecb7-ff21-4658-ae7e-553497dd3509" FromIndex="0" />
+      <Link Id="7272d4ed-0940-49f7-9560-8845dc1aa946" ToElement="0c900e54-becf-48b9-bd34-1a27df67a865" ToIndex="0" FromElement="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" FromIndex="0" />
+    </Links>
+  </Runtime>
+  <Layout Version="2">
+    <Worksheets>
+      <Worksheet Id="07e1d85e-224a-4907-a728-1898f30e20a6" Name="ReTrigger-Rcv">
+        <Elements>
+          <CompositeElement Id="fcb9ecb7-ff21-4658-ae7e-553497dd3509" Height="60" Width="132.06666666666666" X="435" Y="330" Remark="" />
+          <InElement Id="9cf3a5b0-e270-40cb-9dd2-4383bda7d7fc" Height="60" Width="87.039999999999992" X="105" Y="150" Remark="" />
+          <GateElement Id="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" Height="60" Width="76" X="720" Y="150" Remark="" />
+          <OutElement Id="0c900e54-becf-48b9-bd34-1a27df67a865" Height="60" Width="89.74" X="945" Y="150" Remark="" />
+        </Elements>
+        <Links />
+      </Worksheet>
+    </Worksheets>
+  </Layout>
+</LogicEngine>
