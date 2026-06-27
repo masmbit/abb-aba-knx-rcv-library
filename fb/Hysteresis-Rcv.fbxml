@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CFB Id="f12ef49d-0b2b-4273-b19f-da617bcd8007" Protected="false" Imported="false">
+  <MetaInfo Author="manni" Description="Hysteresis-Rcv v1.2 (27.06.2026)" LicenseAgreement="Controls the system using an &#xD;&#xA;absolute switch-on point and a &#xD;&#xA;relative switch-off point based &#xD;&#xA;on the hysteresis values.&#xD;&#xA;&#xD;&#xA;Provides both direct (Cooling) &#xD;&#xA;and inverted (Heating) outputs.&#xD;&#xA;&#xD;&#xA;Cooling Out (ON) / Heating Out (OFF):&#xD;&#xA;Current Temperature ≥ (Target &#xD;&#xA;+ On Hysteresis)&#xD;&#xA;&#xD;&#xA;Cooling Out (OFF) / Heating Out (ON):&#xD;&#xA;Current Temperature &lt; (Target &#xD;&#xA;+ On Hysteresis - Off Hysteresis)&#xD;&#xA;&#xD;&#xA;Generates a Rcv pulse whenever&#xD;&#xA;either output state changes.&#xD;&#xA;&#xD;&#xA;Example:&#xD;&#xA;- Target: 20°C&#xD;&#xA;- On Hysteresis: 1K (Threshold: 21°C)&#xD;&#xA;- Off Hysteresis: 3K (Threshold: 18°C)&#xD;&#xA;&#xD;&#xA;Cooling Output behavior:&#xD;&#xA;≥ 21°C → Cooling ON&#xD;&#xA;20°C to 19°C → Cooling no change&#xD;&#xA;≤ 18°C → Cooling OFF&#xD;&#xA;&#xD;&#xA;Heating Output behavior:&#xD;&#xA;≤ 18°C → Heating ON&#xD;&#xA;19°C to 20°C → Heating no change&#xD;&#xA;≥ 21°C → Heating OFF&#xD;&#xA;&#xD;&#xA;IN: Target Temperature [16 Bit]&#xD;&#xA;IN: Current Temperature [16 Bit]&#xD;&#xA;IN: On Hysteresis [16 Bit] (Kelvin)&#xD;&#xA;IN: Off Hysteresis [16 Bit] (Kelvin)&#xD;&#xA;OUT: Cooling [Bit] (signal)&#xD;&#xA;OUT: Heating [Bit] (signal)&#xD;&#xA;OUT: Rcv [Bit] (pulse)" Title="Hysteresis-Rcv" Version="1.2" />
+  <Content>
+    <LogicEngine>
+      <Runtime Version="2">
+        <Elements>
+          <GuiInElement Id="cc7a6fe8-8237-4c92-a3d9-df8f508658ef" Name="[IN] Target [16 Bit]" DataType="TwoByteFloat">
+            <Outs>
+              <Out Id="c99a4200-a0a0-4225-a913-57be1f93942b" Index="0" Visible="true" DataType="9.*" />
+            </Outs>
+            <Parameters />
+          </GuiInElement>
+          <GuiInElement Id="4a6862f7-adf4-48a6-bb1c-4d83c223bdf1" Name="[IN] Current [16 Bit]" DataType="TwoByteFloat">
+            <Outs>
+              <Out Id="6b3f6a40-c446-435a-93c8-f53a784a66ef" Index="0" Visible="true" DataType="9.*" />
+            </Outs>
+            <Parameters>
+              <Parameter Index="0" Value="1" />
+            </Parameters>
+          </GuiInElement>
+          <GuiInElement Id="40c0ae8c-59a1-4591-a6b4-a3f3b7801403" Name="[IN] Hysterese On [16 Bit]" DataType="TwoByteFloat">
+            <Outs>
+              <Out Id="7a7f5df0-e67b-41ea-982f-7d4086770eba" Index="0" Visible="true" DataType="9.*" />
+            </Outs>
+            <Parameters>
+              <Parameter Index="0" Value="2" />
+            </Parameters>
+          </GuiInElement>
+          <GuiInElement Id="9d84275d-91be-473d-81f4-0d802e83430c" Name="[IN] Hysterese Off [16 Bit]" DataType="TwoByteFloat">
+            <Outs>
+              <Out Id="6b7b351e-e619-4996-a52c-4b09d9e3fdfd" Index="0" Visible="true" DataType="9.*" />
+            </Outs>
+            <Parameters>
+              <Parameter Index="0" Value="3" />
+            </Parameters>
+          </GuiInElement>
+          <AddElement Id="5cba773b-564a-44cb-b469-4d04c038e45f" Name="ADD">
+            <Ins>
+              <In Id="f7a27ef3-d4bc-44fa-a954-206ca5d89c33" Index="0" Visible="true" DataType="9.*" />
+              <In Id="0390ef6f-a736-41d9-b8d8-43d3a653be9b" Index="1" Visible="true" DataType="9.*" />
+              <In Id="3e31520a-c47b-47c3-a826-b6dd0a41630f" Index="2" Visible="false" Value="0" DataType="9.*" />
+              <In Id="9a9bdb5f-0bc7-4968-9632-94925ff3195a" Index="3" Visible="false" Value="0" DataType="9.*" />
+              <In Id="d39a102e-ff47-4524-89e7-6303ac76641c" Index="4" Visible="false" Value="0" DataType="9.*" />
+              <In Id="c1c308e0-6945-4247-8c55-429586966936" Index="5" Visible="false" Value="0" DataType="9.*" />
+              <In Id="ea71a7b3-1182-420d-a8a5-c08e73af07ce" Index="6" Visible="false" Value="0" DataType="9.*" />
+              <In Id="9e63e680-4f16-4070-936d-e9bfb1391677" Index="7" Visible="false" Value="0" DataType="9.*" />
+              <In Id="98f0bf16-7aa6-4725-8640-3f6cb4944d7b" Index="8" Visible="false" Value="0" DataType="9.*" />
+              <In Id="9f348cc8-9bf5-4865-9941-312667ef5539" Index="9" Visible="false" Value="0" DataType="9.*" />
+              <In Id="bc94663b-8cc0-4ad4-8ccc-551283896e62" Index="10" Visible="false" Value="0" DataType="9.*" />
+              <In Id="66c58d91-b881-4693-b16a-83f59b4aa906" Index="11" Visible="false" Value="0" DataType="9.*" />
+              <In Id="1050f1fb-ab53-42ab-a4df-23827869f28a" Index="12" Visible="false" Value="0" DataType="9.*" />
+              <In Id="65b5eb24-25e8-45e2-9b72-325b59223314" Index="13" Visible="false" Value="0" DataType="9.*" />
+              <In Id="2f67fd09-bdee-4f63-af9e-bee92d16020e" Index="14" Visible="false" Value="0" DataType="9.*" />
+              <In Id="ea40fd2a-205a-4105-b64b-0e7e34981928" Index="15" Visible="false" Value="0" DataType="9.*" />
+            </Ins>
+            <Outs>
+              <Out Id="af0fce26-9022-400e-bd23-f278d50eb1bd" Index="0" Visible="true" DataType="9.*" />
+              <Out Id="67286df6-1bf4-4a6e-9301-9754f5a45f74" Index="1" Visible="true" DataType="1.*" />
+            </Outs>
+          </AddElement>
+          <SubtractionElement Id="b70df8aa-e4d8-45d8-8054-ddd731abbb6e" Name="SUB">
+            <Ins>
+              <In Id="e0088257-fb8f-4bc1-b9d1-e9fe73a3a1e9" Index="0" Visible="true" DataType="9.*" />
+              <In Id="d9b8cffe-f0e9-4d1e-9d68-55491b9de34c" Index="1" Visible="true" DataType="9.*" />
+            </Ins>
+            <Outs>
+              <Out Id="a6c7a212-3ce5-4a3b-aa85-00a836418976" Index="0" Visible="true" DataType="9.*" />
+              <Out Id="49f97ac6-1cc0-4bc0-af87-857d7ff8035c" Index="1" Visible="true" DataType="1.*" />
+            </Outs>
+          </SubtractionElement>
+          <LowerEqualElement Id="70d61163-30e4-45f8-9f5e-e8a78b7640a6" Name="LOWER/EQUAL">
+            <Ins>
+              <In Id="f23a8aef-d914-480f-934f-e8847439fb69" Index="0" Visible="true" DataType="9.*" />
+              <In Id="e9386158-9efb-4c18-a323-de0568cd32b5" Index="1" Visible="true" DataType="9.*" />
+            </Ins>
+            <Outs>
+              <Out Id="5a3e218f-9598-44fc-935b-7318c577876e" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </LowerEqualElement>
+          <LowerEqualElement Id="d2098398-41e8-4be8-bc7d-8b1048ffcc1f" Name="LOWER/EQUAL">
+            <Ins>
+              <In Id="f4ddb27f-81da-4020-bd30-0b7f9f6663ce" Index="0" Visible="true" DataType="9.*" />
+              <In Id="5c712299-23b8-4986-acca-86d3c755eb4c" Index="1" Visible="true" DataType="9.*" />
+            </Ins>
+            <Outs>
+              <Out Id="276f4be8-dbea-4be0-926f-1d7da4672bf0" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </LowerEqualElement>
+          <RsFlipFlopElement Id="b139aa50-bfff-411a-931b-75bd95fd1f56" Name="RS-FF">
+            <Ins>
+              <In Id="61efa392-caf1-40a4-8961-2299082a79da" Index="0" Visible="true" DataType="1.*" />
+              <In Id="6d5b44c9-bc18-4618-9c71-f8bf3eaf190c" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="4ed3d669-f32f-46a5-9ed9-621c6a7e9c8c" Index="0" Visible="true" DataType="1.*" />
+              <Out Id="32a26c19-cc63-4e72-8107-824456ea02c4" Index="1" Visible="true" DataType="1.*" />
+            </Outs>
+          </RsFlipFlopElement>
+          <StaircaseLightElement Id="9c5ecb35-ed12-4038-bb2b-2f4f471de5e5" Name="On-Detect">
+            <Ins>
+              <In Id="b0d28168-4b08-4019-b57c-5de01f37aa44" Index="0" Visible="true" DataType="1.*" />
+              <In Id="0ec69ff5-13e0-4e07-a1eb-0752c4e8b120" Index="1" Visible="false" Value="1" DataType="13.*" />
+              <In Id="840e29fb-eff2-425a-9c77-377e569feb2b" Index="2" Visible="false" Value="false" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="f4279eae-c3fe-474b-9059-748efd4e9d30" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </StaircaseLightElement>
+          <StaircaseLightElement Id="a5c96c85-992d-4afd-865f-d60d3856e7e2" Name="Off-Detect">
+            <Ins>
+              <In Id="2e6943b5-df98-46c0-97cb-5413038796c1" Index="0" Visible="true" DataType="1.*" />
+              <In Id="b222afb5-06aa-4aa0-9079-af7c4113ae19" Index="1" Visible="false" Value="1" DataType="13.*" />
+              <In Id="9f75628e-390a-499f-9a56-d04aa70e3a16" Index="2" Visible="false" Value="false" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="7e1e8c48-a604-4332-bba2-2487d308c4ca" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </StaircaseLightElement>
+          <OrElement Id="a4e66449-7f60-4a38-9181-690443b03d0f" Name="OR">
+            <Ins>
+              <In Id="2b5b53d7-ae74-4a2a-bfaa-270caff07961" Index="0" Visible="true" DataType="1.*" />
+              <In Id="69d82fa1-285f-4c0e-8e6e-2f47fa517994" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="4a997ac9-cce3-4336-938c-f271f5828d0e" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </OrElement>
+          <OrElement Id="79be0fbd-7d2b-4d30-97ae-0cdce2006d4b" Name="OR">
+            <Ins>
+              <In Id="5b4e7b69-d0ca-4874-8b1e-832eb53b030e" Index="0" Visible="true" DataType="1.*" />
+              <In Id="55cc8d13-3fa9-4a31-a432-0980ef8ac46b" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="ce338309-3f8e-41e4-8c50-adf942777910" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </OrElement>
+          <GateElement Id="6594238d-045a-4d1a-ad10-74ad509a9ebc" Name="GATE">
+            <Ins>
+              <In Id="d76685c5-6459-4c7d-b48a-042f752d920e" Index="0" Visible="true" DataType="1.*" />
+              <In Id="90f3a99b-ed7d-47f5-979b-17e689a0f4b1" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="d49aa676-a223-46b4-ad0f-222f34cc901b" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+            <Parameters />
+          </GateElement>
+          <GateElement Id="82aa2a62-8798-4e31-838b-3275ffe46f4f" Name="GATE">
+            <Ins>
+              <In Id="003584a4-dc9d-4d90-93ef-dbef255739a6" Index="0" Visible="true" DataType="1.*" />
+              <In Id="9583e581-b428-4192-be33-c0ea2ee55343" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="7e567f53-6c00-4308-8cee-44a5c0c4935c" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+            <Parameters />
+          </GateElement>
+          <GuiOutElement Id="2a4c139c-610d-4c7e-b0dd-0cdfd039c4c8" Name="Cooling [Bit]" DataType="OneBit">
+            <Ins>
+              <In Id="d607c63a-e996-40a8-88cc-aee0173cffd6" Index="0" Visible="true" DataType="1.*" />
+            </Ins>
+            <Parameters />
+          </GuiOutElement>
+          <GuiOutElement Id="10c6f8c8-02e5-4395-a66a-3ff1adc349f5" Name="Rcv [Bit]" DataType="OneBit">
+            <Ins>
+              <In Id="335054f2-c254-4ad4-a882-7ed32fca7556" Index="0" Visible="true" DataType="1.*" />
+            </Ins>
+            <Parameters>
+              <Parameter Index="0" Value="2" />
+            </Parameters>
+          </GuiOutElement>
+          <GuiOutElement Id="bfe2a209-efae-47f7-a218-8a7bba41c409" Name="Heating [Bit]" DataType="OneBit">
+            <Ins>
+              <In Id="c4ebc7e9-87d1-4cdb-83ba-84942fb2e53c" Index="0" Visible="true" Inverted="true" DataType="1.*" />
+            </Ins>
+            <Parameters>
+              <Parameter Index="0" Value="1" />
+            </Parameters>
+          </GuiOutElement>
+        </Elements>
+        <Links>
+          <Link Id="2f5825c3-b491-472d-92f0-22335728524d" ToElement="5cba773b-564a-44cb-b469-4d04c038e45f" ToIndex="0" FromElement="cc7a6fe8-8237-4c92-a3d9-df8f508658ef" FromIndex="0" />
+          <Link Id="033df8cc-cf61-444c-954b-198c1ec34b97" ToElement="70d61163-30e4-45f8-9f5e-e8a78b7640a6" ToIndex="1" FromElement="4a6862f7-adf4-48a6-bb1c-4d83c223bdf1" FromIndex="0" />
+          <Link Id="f3180ae6-62e2-4e99-943d-2fb03e143047" ToElement="d2098398-41e8-4be8-bc7d-8b1048ffcc1f" ToIndex="0" FromElement="4a6862f7-adf4-48a6-bb1c-4d83c223bdf1" FromIndex="0" />
+          <Link Id="57faf750-a5e8-45bf-b928-5869baee5e41" ToElement="5cba773b-564a-44cb-b469-4d04c038e45f" ToIndex="1" FromElement="40c0ae8c-59a1-4591-a6b4-a3f3b7801403" FromIndex="0" />
+          <Link Id="37d0cf24-9cfd-4edc-b488-472c7bb49e90" ToElement="b70df8aa-e4d8-45d8-8054-ddd731abbb6e" ToIndex="1" FromElement="9d84275d-91be-473d-81f4-0d802e83430c" FromIndex="0" />
+          <Link Id="87d1c467-3a4b-430b-a4e2-0d02b092e636" ToElement="70d61163-30e4-45f8-9f5e-e8a78b7640a6" ToIndex="0" FromElement="5cba773b-564a-44cb-b469-4d04c038e45f" FromIndex="0" />
+          <Link Id="94fcbf97-40f1-4017-8b9e-d4ec46164f79" ToElement="b70df8aa-e4d8-45d8-8054-ddd731abbb6e" ToIndex="0" FromElement="5cba773b-564a-44cb-b469-4d04c038e45f" FromIndex="0" />
+          <Link Id="16b72ca6-85a5-4e49-b2c3-e0a39bf2d2bc" ToElement="d2098398-41e8-4be8-bc7d-8b1048ffcc1f" ToIndex="1" FromElement="b70df8aa-e4d8-45d8-8054-ddd731abbb6e" FromIndex="0" />
+          <Link Id="d6a0fe98-6823-421a-b8f7-33856270b569" ToElement="b139aa50-bfff-411a-931b-75bd95fd1f56" ToIndex="0" FromElement="70d61163-30e4-45f8-9f5e-e8a78b7640a6" FromIndex="0" />
+          <Link Id="99b7df43-3b24-455f-80f2-dff68fc07e40" ToElement="b139aa50-bfff-411a-931b-75bd95fd1f56" ToIndex="1" FromElement="d2098398-41e8-4be8-bc7d-8b1048ffcc1f" FromIndex="0" />
+          <Link Id="e4372995-3d76-40b3-9a2e-87cf45c5c007" ToElement="82aa2a62-8798-4e31-838b-3275ffe46f4f" ToIndex="0" FromElement="b139aa50-bfff-411a-931b-75bd95fd1f56" FromIndex="0" />
+          <Link Id="829b662a-2565-4e48-a72a-c179494f76d2" ToElement="9c5ecb35-ed12-4038-bb2b-2f4f471de5e5" ToIndex="0" FromElement="b139aa50-bfff-411a-931b-75bd95fd1f56" FromIndex="0" />
+          <Link Id="4b90d41e-4d6c-4e23-a001-9c87bf8e93be" ToElement="a4e66449-7f60-4a38-9181-690443b03d0f" ToIndex="0" FromElement="b139aa50-bfff-411a-931b-75bd95fd1f56" FromIndex="0" />
+          <Link Id="15ef439e-64c8-4466-9a46-691394a40a0c" ToElement="a5c96c85-992d-4afd-865f-d60d3856e7e2" ToIndex="0" FromElement="b139aa50-bfff-411a-931b-75bd95fd1f56" FromIndex="1" />
+          <Link Id="9afa519c-a437-4379-b96e-0eff04ec5657" ToElement="a4e66449-7f60-4a38-9181-690443b03d0f" ToIndex="1" FromElement="b139aa50-bfff-411a-931b-75bd95fd1f56" FromIndex="1" />
+          <Link Id="46d834bd-61bb-4f30-a79a-9f92fe6b3fad" ToElement="79be0fbd-7d2b-4d30-97ae-0cdce2006d4b" ToIndex="0" FromElement="9c5ecb35-ed12-4038-bb2b-2f4f471de5e5" FromIndex="0" />
+          <Link Id="67f7326d-33c2-4190-a77f-75d612b5a8d3" ToElement="79be0fbd-7d2b-4d30-97ae-0cdce2006d4b" ToIndex="1" FromElement="a5c96c85-992d-4afd-865f-d60d3856e7e2" FromIndex="0" />
+          <Link Id="df8c8001-3023-46a7-aab3-bd379eb32e6e" ToElement="6594238d-045a-4d1a-ad10-74ad509a9ebc" ToIndex="1" FromElement="a4e66449-7f60-4a38-9181-690443b03d0f" FromIndex="0" />
+          <Link Id="b49a53f9-edeb-49f5-b83f-02309ad03e78" ToElement="82aa2a62-8798-4e31-838b-3275ffe46f4f" ToIndex="1" FromElement="79be0fbd-7d2b-4d30-97ae-0cdce2006d4b" FromIndex="0" />
+          <Link Id="d9fcbeab-80e5-410a-9ca5-b897f856a218" ToElement="6594238d-045a-4d1a-ad10-74ad509a9ebc" ToIndex="0" FromElement="79be0fbd-7d2b-4d30-97ae-0cdce2006d4b" FromIndex="0" />
+          <Link Id="bd67d808-f44b-4a59-a6df-30c1a8084765" ToElement="10c6f8c8-02e5-4395-a66a-3ff1adc349f5" ToIndex="0" FromElement="6594238d-045a-4d1a-ad10-74ad509a9ebc" FromIndex="0" />
+          <Link Id="6d0afd43-35b8-48bb-ba5d-adc5e4209952" ToElement="2a4c139c-610d-4c7e-b0dd-0cdfd039c4c8" ToIndex="0" FromElement="82aa2a62-8798-4e31-838b-3275ffe46f4f" FromIndex="0" />
+          <Link Id="32d93115-77b3-4522-86f8-7d4c38cf0a20" ToElement="bfe2a209-efae-47f7-a218-8a7bba41c409" ToIndex="0" FromElement="82aa2a62-8798-4e31-838b-3275ffe46f4f" FromIndex="0" />
+        </Links>
+      </Runtime>
+      <Layout Version="2">
+        <Worksheets>
+          <Worksheet Id="5969e3d4-a461-4ac6-b4a0-65e713ffcf4a" Name="CFB">
+            <Elements>
+              <Label Id="173663b8-22ea-400f-88d0-ddb195312fc5" Height="60" Width="1922" X="195" Y="195" Remark="" Angle="0" Text="Hysteresis-Rcv" />
+              <Rectangle Id="86192d6b-8d27-488d-b856-baade9718864" Height="750.333333333333" Width="1920" X="195" Y="255" Remark="" Angle="0" Text="" />
+              <GuiInElement Id="cc7a6fe8-8237-4c92-a3d9-df8f508658ef" Height="60" Width="139.21" X="285" Y="360" Remark="">
+                <Parameters>
+                  <Parameter Value="T" />
+                  <Parameter Value="[IN] Target-Temp [16 Bit]" />
+                  <Parameter />
+                </Parameters>
+              </GuiInElement>
+              <GuiInElement Id="4a6862f7-adf4-48a6-bb1c-4d83c223bdf1" Height="60" Width="146.28" X="285" Y="435" Remark="">
+                <Parameters>
+                  <Parameter Value="C" />
+                  <Parameter Value="[IN] Current-Temp [16 Bit]" />
+                  <Parameter Value="1" />
+                </Parameters>
+              </GuiInElement>
+              <GuiInElement Id="40c0ae8c-59a1-4591-a6b4-a3f3b7801403" Height="60" Width="177.28666666666669" X="285" Y="510" Remark="">
+                <Parameters>
+                  <Parameter Value="HyOn" />
+                  <Parameter Value="[IN] On Hysterese in Kelvin [16 Bit]" />
+                  <Parameter Value="2" />
+                </Parameters>
+              </GuiInElement>
+              <GuiInElement Id="9d84275d-91be-473d-81f4-0d802e83430c" Height="60" Width="178.01000000000002" X="285" Y="585" Remark="">
+                <Parameters>
+                  <Parameter Value="HyOff" />
+                  <Parameter Value="[IN] Off Hysterese in Kelvin [16 Bit]" />
+                  <Parameter Value="3" />
+                </Parameters>
+              </GuiInElement>
+              <AddElement Id="5cba773b-564a-44cb-b469-4d04c038e45f" Height="60" Width="83.796666666666681" X="630" Y="375" Remark="" />
+              <SubtractionElement Id="b70df8aa-e4d8-45d8-8054-ddd731abbb6e" Height="60" Width="76" X="795" Y="645" Remark="" />
+              <LowerEqualElement Id="70d61163-30e4-45f8-9f5e-e8a78b7640a6" Height="60" Width="128.49333333333334" X="960" Y="465" Remark="" />
+              <LowerEqualElement Id="d2098398-41e8-4be8-bc7d-8b1048ffcc1f" Height="60" Width="128.49333333333334" X="960" Y="555" Remark="" />
+              <RsFlipFlopElement Id="b139aa50-bfff-411a-931b-75bd95fd1f56" Height="60" Width="79.396666666666675" X="1230" Y="495" Remark="" />
+              <StaircaseLightElement Id="9c5ecb35-ed12-4038-bb2b-2f4f471de5e5" Height="60" Width="104.05000000000001" X="1410" Y="525" Remark="" />
+              <StaircaseLightElement Id="a5c96c85-992d-4afd-865f-d60d3856e7e2" Height="60" Width="104.77333333333334" X="1410" Y="600" Remark="" />
+              <OrElement Id="a4e66449-7f60-4a38-9181-690443b03d0f" Height="60" Width="76" X="1410" Y="690" Remark="" />
+              <OrElement Id="79be0fbd-7d2b-4d30-97ae-0cdce2006d4b" Height="60" Width="76" X="1560" Y="540" Remark="" />
+              <GateElement Id="6594238d-045a-4d1a-ad10-74ad509a9ebc" Height="60" Width="76" X="1680" Y="675" Remark="temperatur weiterleitung nur wenn clima ein" />
+              <GateElement Id="82aa2a62-8798-4e31-838b-3275ffe46f4f" Height="60" Width="76" X="1695" Y="495" Remark="" />
+              <GuiOutElement Id="2a4c139c-610d-4c7e-b0dd-0cdfd039c4c8" Height="60" Width="105.40333333333334" X="1830" Y="495" Remark="">
+                <Parameters>
+                  <Parameter Value="C" />
+                  <Parameter Value="[OUT] Cooling On/Off [1Bit]" />
+                  <Parameter />
+                </Parameters>
+              </GuiOutElement>
+              <GuiOutElement Id="10c6f8c8-02e5-4395-a66a-3ff1adc349f5" Height="60" Width="82.36" X="1830" Y="675" Remark="">
+                <Parameters>
+                  <Parameter Value="Rcv" />
+                  <Parameter Value="Rcv [Bit]" />
+                  <Parameter Value="2" />
+                </Parameters>
+              </GuiOutElement>
+              <Label Id="55ffe44c-991f-4624-b72b-f7fad25eba80" Height="60" Width="285" X="1830" Y="255" Remark="" Angle="0" Text="v1.2 (27.06.2026 - 18:00)" />
+              <GuiOutElement Id="bfe2a209-efae-47f7-a218-8a7bba41c409" Height="60" Width="105.97666666666667" X="1830" Y="570" Remark="">
+                <Parameters>
+                  <Parameter Value="H" />
+                  <Parameter Value="[OUT] Heating  On/Off [1Bit]" />
+                  <Parameter Value="1" />
+                </Parameters>
+              </GuiOutElement>
+            </Elements>
+            <Links />
+          </Worksheet>
+        </Worksheets>
+      </Layout>
+    </LogicEngine>
+  </Content>
+</CFB>

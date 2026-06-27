@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CFB Id="c7b91b90-f0ce-473a-b014-30d078328cb3" Protected="false" Imported="false">
+  <MetaInfo Author="manni" Description="Generate-Rcv v1.1 (27.06.2026)" LicenseAgreement="Generates a periodic 1-second Rcv&#xD;&#xA;pulse at the output as long as the&#xD;&#xA;Enable input is HIGH.&#xD;&#xA;&#xD;&#xA;Useful for watchdog functions,&#xD;&#xA;such as sending a heartbeat pulse&#xD;&#xA;at regular intervals.&#xD;&#xA;&#xD;&#xA;Example:&#xD;&#xA;Specifying 3600 for Delay Time&#xD;&#xA;will generate a Rcv pulse every hour.&#xD;&#xA;&#xD;&#xA;Technical Note / Tip:&#xD;&#xA;To ensure the generator starts&#xD;&#xA;automatically after a system boot&#xD;&#xA;connect the Enable input to the&#xD;&#xA;output of a Calendar function block.&#xD;&#xA;If the Enable input is permanently&#xD;&#xA;wired to static HIGH, the generator&#xD;&#xA;will not auto-start after a reboot.&#xD;&#xA;&#xD;&#xA;IN: Enable [Bit]&#xD;&#xA;IN: Delay Time [sec]&#xD;&#xA;OUT: Rcv [Bit] (pulse)&#xD;&#xA;&#xD;&#xA;" Title="Generate-Rcv" Version="1.1" />
+  <Content>
+    <LogicEngine>
+      <Runtime Version="2">
+        <Elements>
+          <GuiInElement Id="92c7746c-e681-42f0-af29-3875be5747fb" Name="Enable [Bit]" DataType="OneBit">
+            <Outs>
+              <Out Id="f8f314df-2ead-4110-8040-b24325b12347" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+            <Parameters />
+          </GuiInElement>
+          <GuiInElement Id="a51ee74b-033e-43d6-b2d4-01ee0a70c3c1" Name="Delay [sec]" DataType="FourByteSigned">
+            <Outs>
+              <Out Id="b3e29b10-86c0-424e-baae-0a9e790921cc" Index="0" Visible="true" DataType="13.*" />
+            </Outs>
+            <Parameters>
+              <Parameter Index="0" Value="1" />
+            </Parameters>
+          </GuiInElement>
+          <GateElement Id="0fb0deaa-57c5-4c2d-9453-6dc84930d1fb" Name="GATE">
+            <Ins>
+              <In Id="0a990b5b-ab6a-426c-a032-eeaca0af959d" Index="0" Visible="true" DataType="1.*" />
+              <In Id="2a362900-9e90-4a0d-a8c9-d1c5c78591cc" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="08573bc6-4e7c-4d88-a611-e002a5a1e1b8" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+            <Parameters />
+          </GateElement>
+          <MultiplicationElement Id="7aa9104e-9a1c-4d8c-ad4e-b88598485dfe" Name="MULT">
+            <Ins>
+              <In Id="14d57f6d-4aa1-47b8-9b65-abc09ff82296" Index="0" Visible="true" DataType="13.*" />
+              <In Id="218de815-0fd3-4aae-a71a-b3b49d24efaa" Index="1" Visible="true" DataType="13.*" />
+              <In Id="e3f9b449-413b-47f5-a31e-4d9b4f9ac450" Index="2" Visible="false" Value="0" DataType="13.*" />
+              <In Id="6c9a685e-de06-436f-a060-95dc40958647" Index="3" Visible="false" Value="0" DataType="13.*" />
+              <In Id="106c1be5-f799-45b2-90ed-0b7d84c3f6d2" Index="4" Visible="false" Value="0" DataType="13.*" />
+              <In Id="39cea09e-1270-4516-a65f-1dfb917b0dba" Index="5" Visible="false" Value="0" DataType="13.*" />
+              <In Id="46775cf6-0819-4249-a567-4deba4306aea" Index="6" Visible="false" Value="0" DataType="13.*" />
+              <In Id="b08c1322-8c44-4738-9035-96a4ce2b081b" Index="7" Visible="false" Value="0" DataType="13.*" />
+              <In Id="67ac8d08-17c5-41e3-80c0-83771ab022d1" Index="8" Visible="false" Value="0" DataType="13.*" />
+              <In Id="0988657f-e76a-4776-81ef-ce295e16cd1a" Index="9" Visible="false" Value="0" DataType="13.*" />
+              <In Id="50f4c7fe-5266-42e3-8f65-61b5e4d1ca09" Index="10" Visible="false" Value="0" DataType="13.*" />
+              <In Id="cb2f67cf-33ca-449e-9cf6-bdd102fd747b" Index="11" Visible="false" Value="0" DataType="13.*" />
+              <In Id="1a2144c8-8b28-44fe-99ef-0dddd9552f35" Index="12" Visible="false" Value="0" DataType="13.*" />
+              <In Id="9f3be074-a44e-4bfe-8e64-e3739e92fb4a" Index="13" Visible="false" Value="0" DataType="13.*" />
+              <In Id="c61bff65-afcf-422a-a332-994b7e837e6b" Index="14" Visible="false" Value="0" DataType="13.*" />
+              <In Id="926cc63d-25b4-4f20-9a32-ac229d259a9d" Index="15" Visible="false" Value="0" DataType="13.*" />
+            </Ins>
+            <Outs>
+              <Out Id="736fa950-a95d-404d-bab9-c43ccfb6cc69" Index="0" Visible="true" DataType="13.*" />
+              <Out Id="afe312a4-0a08-4660-90cc-aaaac35ff2c6" Index="1" Visible="true" DataType="1.*" />
+            </Outs>
+          </MultiplicationElement>
+          <ConstantElement Id="af2b983e-2f9e-428f-ba41-174773382160" Name="x 2" DataType="FourByteSigned">
+            <Outs>
+              <Out Id="39e4dd9b-b755-4129-8015-f1cef8d198f0" Index="0" Visible="true" DataType="13.*" />
+            </Outs>
+            <Parameters>
+              <Parameter Index="0" Value="2" />
+            </Parameters>
+          </ConstantElement>
+          <AndElement Id="c6226421-9920-45a3-baf1-53aeedc505c9" Name="AND">
+            <Ins>
+              <In Id="a45ff23b-71dd-492a-9a10-137b80d4d9a1" Index="0" Visible="true" DataType="1.*" />
+              <In Id="80e4c993-2e4e-4c11-945f-e8616176bf61" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="39b92cd3-6fd5-4769-9a44-c2fd1d76684c" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </AndElement>
+          <DelayElement Id="d3e0c85f-8512-4291-9f48-65fb96117886" Name="DELAY">
+            <Ins>
+              <In Id="2425d31d-6d41-41df-9bdb-c1c83a8b7a0b" Index="0" Visible="true" DataType="1.*" />
+              <In Id="daaafd36-7447-4058-bbd2-fd5512e9a184" Index="1" Visible="true" DataType="13.*" />
+            </Ins>
+            <Outs>
+              <Out Id="893cd3fa-9396-4200-b75a-e1c16e8828e2" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </DelayElement>
+          <StaircaseLightElement Id="f6517f62-694d-4915-a38c-45483479695c" Name="On-Delay">
+            <Ins>
+              <In Id="ba6197b5-df02-448f-afc7-7127e97a0d00" Index="0" Visible="true" DataType="1.*" />
+              <In Id="46763762-edbe-4b93-91df-a7184d49959c" Index="1" Visible="false" Value="1" DataType="13.*" />
+              <In Id="4d8a3d8e-a8d1-447f-b447-59c17b4453ae" Index="2" Visible="false" Value="false" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="cc122615-23ec-4997-ab2b-bfb4302c40d1" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </StaircaseLightElement>
+          <NotElement Id="da3a7bae-df50-4ec9-9e3c-5f355b6fc6ee" Name="NOT">
+            <Ins>
+              <In Id="22aae57a-78ba-4cd0-9b42-315add2ab598" Index="0" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="3c1a296d-1359-4c8d-ac33-0327d3a3a4df" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </NotElement>
+          <RsFlipFlopElement Id="4b10a015-5b7f-413b-baf0-9a3e3dbb6d21" Name="RS-FF">
+            <Ins>
+              <In Id="be91689b-d418-4ebc-a778-c1c98742afd8" Index="0" Visible="true" DataType="1.*" />
+              <In Id="9ee4c5aa-3c3c-45df-8bcd-6ce62b91319e" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="e4cb8df4-1cdc-46e8-8d4a-ad8f3f1c668b" Index="0" Visible="true" DataType="1.*" />
+              <Out Id="4bb6ead9-6571-48f5-86fb-b7e1dec19193" Index="1" Visible="true" DataType="1.*" />
+            </Outs>
+          </RsFlipFlopElement>
+          <StaircaseLightElement Id="ee2e966d-8bfb-4e36-b79a-1106933a521f" Name="Off-Detect">
+            <Ins>
+              <In Id="6b59728d-f89b-42a7-a2c7-d330ed016591" Index="0" Visible="true" DataType="1.*" />
+              <In Id="ec9b13e7-731d-4dd4-a645-2b4da98cb98a" Index="1" Visible="false" Value="1" DataType="13.*" />
+              <In Id="452ddd22-8f9b-4558-a978-d5e631b04769" Index="2" Visible="false" Value="false" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="ad145b0d-d639-4377-9c70-8ce31bb1cabd" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </StaircaseLightElement>
+          <OrElement Id="2cfdb84a-13c3-48c1-b249-39dbe4f10235" Name="OR">
+            <Ins>
+              <In Id="255483bc-7058-4f99-ad09-7eec7251cef0" Index="0" Visible="true" DataType="1.*" />
+              <In Id="5db636e1-512d-4a75-a55a-6e6f9898b259" Index="1" Visible="true" DataType="1.*" />
+              <In Id="bd56b574-a75e-4874-891e-6e92c06ae0aa" Index="2" Visible="false" Value="false" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="ad1083b8-07f1-4938-980a-777622feaf5e" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </OrElement>
+          <GateElement Id="ab9905cf-ad29-4d7c-bb22-325d19aa30a2" Name="GATE">
+            <Ins>
+              <In Id="23a5995f-30e9-49fe-a79f-d69a9256f509" Index="0" Visible="true" DataType="1.*" />
+              <In Id="9843f053-c294-4273-8b81-28722f79701a" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="4a21a4f6-4f77-412d-ac81-12783793b1cd" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+            <Parameters />
+          </GateElement>
+          <GuiOutElement Id="2de3c8e6-9843-40a6-a251-65b7a0539f8c" Name="OUT [Rcv]" DataType="OneBit">
+            <Ins>
+              <In Id="166c95a9-3b42-477c-a9df-eda1a7f3c6ea" Index="0" Visible="true" DataType="1.*" />
+            </Ins>
+            <Parameters>
+              <Parameter Index="0" Value="1" />
+            </Parameters>
+          </GuiOutElement>
+        </Elements>
+        <Links>
+          <Link Id="d6773724-4e0e-48a5-8ee5-c050e050cb31" ToElement="c6226421-9920-45a3-baf1-53aeedc505c9" ToIndex="0" FromElement="92c7746c-e681-42f0-af29-3875be5747fb" FromIndex="0" />
+          <Link Id="fef363b3-2ddb-4640-a192-462fdec8cd11" ToElement="0fb0deaa-57c5-4c2d-9453-6dc84930d1fb" ToIndex="1" FromElement="92c7746c-e681-42f0-af29-3875be5747fb" FromIndex="0" />
+          <Link Id="fabcc27a-0288-4d8e-a758-01e27f6c2c54" ToElement="7aa9104e-9a1c-4d8c-ad4e-b88598485dfe" ToIndex="0" FromElement="a51ee74b-033e-43d6-b2d4-01ee0a70c3c1" FromIndex="0" />
+          <Link Id="bb506807-76f8-4fa4-8997-cae9125874bf" ToElement="0fb0deaa-57c5-4c2d-9453-6dc84930d1fb" ToIndex="0" FromElement="f6517f62-694d-4915-a38c-45483479695c" FromIndex="0" />
+          <Link Id="9ec493db-4d52-48e5-9171-ba2a84e5a7ad" ToElement="d3e0c85f-8512-4291-9f48-65fb96117886" ToIndex="0" FromElement="0fb0deaa-57c5-4c2d-9453-6dc84930d1fb" FromIndex="0" />
+          <Link Id="2a0942a4-b294-4a82-a3ea-7705eeaf0908" ToElement="7aa9104e-9a1c-4d8c-ad4e-b88598485dfe" ToIndex="1" FromElement="af2b983e-2f9e-428f-ba41-174773382160" FromIndex="0" />
+          <Link Id="89179d02-6c44-4bf4-aa86-509dd52186ff" ToElement="d3e0c85f-8512-4291-9f48-65fb96117886" ToIndex="1" FromElement="7aa9104e-9a1c-4d8c-ad4e-b88598485dfe" FromIndex="0" />
+          <Link Id="947d4b44-bae6-4783-8fe8-35c11cdb3229" ToElement="c6226421-9920-45a3-baf1-53aeedc505c9" ToIndex="1" FromElement="da3a7bae-df50-4ec9-9e3c-5f355b6fc6ee" FromIndex="0" />
+          <Link Id="8f73002c-b895-47f5-9df8-60871669b341" ToElement="f6517f62-694d-4915-a38c-45483479695c" ToIndex="0" FromElement="c6226421-9920-45a3-baf1-53aeedc505c9" FromIndex="0" />
+          <Link Id="3e2159f6-67ed-4cbc-b0a7-c5eaa27cba4b" ToElement="da3a7bae-df50-4ec9-9e3c-5f355b6fc6ee" ToIndex="0" FromElement="d3e0c85f-8512-4291-9f48-65fb96117886" FromIndex="0" />
+          <Link Id="cfaaeca4-353e-44a6-990c-af9d3498b7a4" ToElement="4b10a015-5b7f-413b-baf0-9a3e3dbb6d21" ToIndex="0" FromElement="f6517f62-694d-4915-a38c-45483479695c" FromIndex="0" />
+          <Link Id="553e118a-e8e0-4ace-91de-bcbb227c8ebb" ToElement="4b10a015-5b7f-413b-baf0-9a3e3dbb6d21" ToIndex="1" FromElement="da3a7bae-df50-4ec9-9e3c-5f355b6fc6ee" FromIndex="0" />
+          <Link Id="fc824e44-7219-465c-b9f8-8d99a2d9f20b" ToElement="2cfdb84a-13c3-48c1-b249-39dbe4f10235" ToIndex="0" FromElement="4b10a015-5b7f-413b-baf0-9a3e3dbb6d21" FromIndex="0" />
+          <Link Id="2e377b66-76b8-4000-a931-ed534935990f" ToElement="ee2e966d-8bfb-4e36-b79a-1106933a521f" ToIndex="0" FromElement="4b10a015-5b7f-413b-baf0-9a3e3dbb6d21" FromIndex="1" />
+          <Link Id="0ea8b48b-0500-4ce2-ab20-1c7de708a65b" ToElement="2cfdb84a-13c3-48c1-b249-39dbe4f10235" ToIndex="1" FromElement="4b10a015-5b7f-413b-baf0-9a3e3dbb6d21" FromIndex="1" />
+          <Link Id="0998a0a8-6fa5-4d51-b0a1-9412df56738a" ToElement="ab9905cf-ad29-4d7c-bb22-325d19aa30a2" ToIndex="0" FromElement="ee2e966d-8bfb-4e36-b79a-1106933a521f" FromIndex="0" />
+          <Link Id="55a641c1-f157-449d-8e7f-1b55cd8106a0" ToElement="ab9905cf-ad29-4d7c-bb22-325d19aa30a2" ToIndex="1" FromElement="2cfdb84a-13c3-48c1-b249-39dbe4f10235" FromIndex="0" />
+          <Link Id="5251e6dc-71dc-4b8c-b424-3b737e2ab180" ToElement="2de3c8e6-9843-40a6-a251-65b7a0539f8c" ToIndex="0" FromElement="ab9905cf-ad29-4d7c-bb22-325d19aa30a2" FromIndex="0" />
+        </Links>
+      </Runtime>
+      <Layout Version="2">
+        <Worksheets>
+          <Worksheet Id="35a50dfb-39f1-4742-adda-1d7f49af7fe7" Name="CFB">
+            <Elements>
+              <Label Id="d471db45-cdfc-45f2-afae-d01c5aee3c56" Height="60" Width="1922" X="90" Y="105" Remark="" Angle="0" Text="Generate-Rcv" />
+              <Rectangle Id="31b05b4e-2379-4c0f-9014-7376c87a72a0" Height="540.2910052910056" Width="1920" X="90" Y="165" Remark="" Angle="0" Text="" />
+              <GuiInElement Id="92c7746c-e681-42f0-af29-3875be5747fb" Height="60" Width="102.86000000000001" X="270" Y="345" Remark="">
+                <Parameters>
+                  <Parameter Value="E" />
+                  <Parameter Value="Enable [Bit]" />
+                  <Parameter />
+                </Parameters>
+              </GuiInElement>
+              <GuiInElement Id="a51ee74b-033e-43d6-b2d4-01ee0a70c3c1" Height="60" Width="100.22666666666667" X="285" Y="525" Remark="">
+                <Parameters>
+                  <Parameter Value="T.on" />
+                  <Parameter Value="Delay [sec]" />
+                  <Parameter Value="1" />
+                </Parameters>
+              </GuiInElement>
+              <GateElement Id="0fb0deaa-57c5-4c2d-9453-6dc84930d1fb" Height="60" Width="76" X="510" Y="465" Remark="" />
+              <MultiplicationElement Id="7aa9104e-9a1c-4d8c-ad4e-b88598485dfe" Height="60" Width="88.706666666666678" X="600" Y="540" Remark="" />
+              <ConstantElement Id="af2b983e-2f9e-428f-ba41-174773382160" Height="60" Width="76" X="495" Y="570" Remark="">
+                <Parameters>
+                  <Parameter />
+                </Parameters>
+              </ConstantElement>
+              <AndElement Id="c6226421-9920-45a3-baf1-53aeedc505c9" Height="60" Width="76" X="630" Y="360" Remark="" />
+              <DelayElement Id="d3e0c85f-8512-4291-9f48-65fb96117886" Height="60" Width="82.22" X="735" Y="510" Remark="" />
+              <StaircaseLightElement Id="f6517f62-694d-4915-a38c-45483479695c" Height="60" Width="98.916666666666686" X="870" Y="375" Remark="" />
+              <NotElement Id="da3a7bae-df50-4ec9-9e3c-5f355b6fc6ee" Height="60" Width="76" X="870" Y="510" Remark="" />
+              <RsFlipFlopElement Id="4b10a015-5b7f-413b-baf0-9a3e3dbb6d21" Height="60" Width="79.396666666666675" X="1155" Y="495" Remark="" />
+              <StaircaseLightElement Id="ee2e966d-8bfb-4e36-b79a-1106933a521f" Height="60" Width="104.77333333333334" X="1350" Y="375" Remark="" />
+              <OrElement Id="2cfdb84a-13c3-48c1-b249-39dbe4f10235" Height="60" Width="76" X="1350" Y="495" Remark="" />
+              <GateElement Id="ab9905cf-ad29-4d7c-bb22-325d19aa30a2" Height="60" Width="76" X="1635" Y="390" Remark="temperatur weiterleitung nur wenn clima ein" />
+              <Label Id="546c09a7-c4cd-49c0-a4c6-daa4c06f7296" Height="60" Width="284" X="1725" Y="165" Remark="" Angle="0" Text="v1.1 (27.06.2026 - 18:48)" />
+              <GuiOutElement Id="2de3c8e6-9843-40a6-a251-65b7a0539f8c" Height="60" Width="92.083333333333329" X="1800" Y="390" Remark="">
+                <Parameters>
+                  <Parameter Value="Rcv" />
+                  <Parameter Value="Rcv [Bit]" />
+                  <Parameter Value="1" />
+                </Parameters>
+              </GuiOutElement>
+            </Elements>
+            <Links />
+          </Worksheet>
+        </Worksheets>
+      </Layout>
+    </LogicEngine>
+  </Content>
+</CFB>

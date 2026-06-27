@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CFB Id="3d733680-ff42-42dd-9eff-93b23b9b01c1" Protected="false" Imported="false">
+  <MetaInfo Author="manni" Description="ReTriggerDelay-Rcv v.1.0 (27.06.2026)" LicenseAgreement="Forwards the input pulse to the output&#xD;&#xA;and generates a second 1s pulse at the&#xD;&#xA;output after the specified delay time.&#xD;&#xA;&#xD;&#xA;IN: Rcv [Bit]&#xD;&#xA;IN: Delay [sec]&#xD;&#xA;OUT: Rcv [Bit]" Title="ReTriggerDelay-Rcv" Version="1.0" />
+  <Content>
+    <LogicEngine>
+      <Runtime Version="2">
+        <Elements>
+          <GuiInElement Id="92c7746c-e681-42f0-af29-3875be5747fb" Name="IN [Rcv]" DataType="OneBit">
+            <Outs>
+              <Out Id="f8f314df-2ead-4110-8040-b24325b12347" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+            <Parameters />
+          </GuiInElement>
+          <GuiInElement Id="b3fe2bd8-b98e-46f8-823a-d72b665a712f" Name="[IN] Delay [sec]" DataType="FourByteSigned">
+            <Outs>
+              <Out Id="17d558dd-505b-4dfb-a2e6-5bf45757d825" Index="0" Visible="true" DataType="13.*" />
+            </Outs>
+            <Parameters>
+              <Parameter Index="0" Value="6" />
+            </Parameters>
+          </GuiInElement>
+          <FilterElement Id="49362753-ce01-46f4-bfb1-c55b75486bc3" Name="0-Filter">
+            <Ins>
+              <In Id="08001512-088f-49ca-bf40-399e1c0c5082" Index="0" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="76479534-1377-4e7f-80a3-c19db53f14fc" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+            <Parameters>
+              <Parameter Index="0" Value="Zero" />
+            </Parameters>
+          </FilterElement>
+          <StaircaseLightElement Id="3ec2c50b-e1ea-4e29-9b70-b04dcb5287b0" Name="Delay-2s">
+            <Ins>
+              <In Id="1f945e18-16c7-4d90-b4fb-a296bba77a93" Index="0" Visible="true" DataType="1.*" />
+              <In Id="c9dbfe54-9fc1-4d32-b501-e7c6f9081aa1" Index="1" Visible="true" DataType="13.*" />
+              <In Id="2bdd50c8-e30f-4b7d-aa6e-94685b64bdaa" Index="2" Visible="false" Value="false" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="fdc1cbf8-4f1d-4a2d-8b16-d96c8dc87d8a" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </StaircaseLightElement>
+          <StaircaseLightElement Id="2ae002d5-afa6-420c-8a3e-f29307243140" Name="1s on falling edge">
+            <Ins>
+              <In Id="fba0ab57-f366-4e39-bc3c-cd54d5b22803" Index="0" Visible="true" Inverted="true" DataType="1.*" />
+              <In Id="ba6f12c6-c368-471a-9994-793ad324a9a6" Index="1" Visible="false" Value="1" DataType="13.*" />
+              <In Id="3ea7ecbf-937b-4a91-b2d9-4bf7b76271aa" Index="2" Visible="false" Value="false" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="b84fc1a5-fac0-4dde-8fb0-0fd2888c62c5" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </StaircaseLightElement>
+          <OrElement Id="5c63db70-a4df-4d97-8e17-6bc72d6d262d" Name="OR">
+            <Ins>
+              <In Id="7d2af64a-d92b-4f57-93f8-62b869746381" Index="0" Visible="true" DataType="1.*" />
+              <In Id="c0c2f189-97e6-41f0-a789-a6625766dfe0" Index="1" Visible="true" DataType="1.*" />
+            </Ins>
+            <Outs>
+              <Out Id="5dd0976f-9618-4965-a168-b06055480569" Index="0" Visible="true" DataType="1.*" />
+            </Outs>
+          </OrElement>
+          <GuiOutElement Id="2de3c8e6-9843-40a6-a251-65b7a0539f8c" Name="OUT [Rcv]" DataType="OneBit">
+            <Ins>
+              <In Id="166c95a9-3b42-477c-a9df-eda1a7f3c6ea" Index="0" Visible="true" DataType="1.*" />
+            </Ins>
+            <Parameters />
+          </GuiOutElement>
+        </Elements>
+        <Links>
+          <Link Id="e055e94d-7afa-4704-af0e-2bb55f497107" ToElement="5c63db70-a4df-4d97-8e17-6bc72d6d262d" ToIndex="0" FromElement="92c7746c-e681-42f0-af29-3875be5747fb" FromIndex="0" />
+          <Link Id="efd76cd6-638c-4de4-9f2a-96d6def11f6d" ToElement="49362753-ce01-46f4-bfb1-c55b75486bc3" ToIndex="0" FromElement="92c7746c-e681-42f0-af29-3875be5747fb" FromIndex="0" />
+          <Link Id="bec0cfcd-f1a0-4c85-aba7-afbbaf403933" ToElement="3ec2c50b-e1ea-4e29-9b70-b04dcb5287b0" ToIndex="1" FromElement="b3fe2bd8-b98e-46f8-823a-d72b665a712f" FromIndex="0" />
+          <Link Id="201eab4d-6c37-4da7-b580-70d994b6d58f" ToElement="3ec2c50b-e1ea-4e29-9b70-b04dcb5287b0" ToIndex="0" FromElement="49362753-ce01-46f4-bfb1-c55b75486bc3" FromIndex="0" />
+          <Link Id="1df5279a-1684-470f-8814-239f0dfbc907" ToElement="2ae002d5-afa6-420c-8a3e-f29307243140" ToIndex="0" FromElement="3ec2c50b-e1ea-4e29-9b70-b04dcb5287b0" FromIndex="0" />
+          <Link Id="53c62816-ae34-426f-9282-6eeda0e26a77" ToElement="5c63db70-a4df-4d97-8e17-6bc72d6d262d" ToIndex="1" FromElement="2ae002d5-afa6-420c-8a3e-f29307243140" FromIndex="0" />
+          <Link Id="b7d8b48a-04c4-4494-bdaa-1ba485e881b5" ToElement="2de3c8e6-9843-40a6-a251-65b7a0539f8c" ToIndex="0" FromElement="5c63db70-a4df-4d97-8e17-6bc72d6d262d" FromIndex="0" />
+        </Links>
+      </Runtime>
+      <Layout Version="2">
+        <Worksheets>
+          <Worksheet Id="1a8498e2-4ea8-4c0c-871e-213806c2184a" Name="CFB">
+            <Elements>
+              <Label Id="a099d3ee-a848-4934-998c-a9bcb0bf6c39" Height="60" Width="1922" X="90" Y="105" Remark="" Angle="0" Text="ReTrigger Rcv with Delay" />
+              <Rectangle Id="6278e5fb-b05c-4994-af2a-f836016f3d1f" Height="440.36281179138336" Width="1925" X="90" Y="165" Remark="" Angle="0" Text="" />
+              <GuiInElement Id="92c7746c-e681-42f0-af29-3875be5747fb" Height="60" Width="84.09" X="465" Y="315" Remark="">
+                <Parameters>
+                  <Parameter Value="Rcv" />
+                  <Parameter Value="Rcv [Bit]" />
+                  <Parameter />
+                </Parameters>
+              </GuiInElement>
+              <GuiInElement Id="b3fe2bd8-b98e-46f8-823a-d72b665a712f" Height="60" Width="122.92333333333335" X="465" Y="465" Remark="">
+                <Parameters>
+                  <Parameter Value="Delay" />
+                  <Parameter Value="[IN] Delay Time of Second Rcv Impulse [sec]" />
+                  <Parameter Value="6" />
+                </Parameters>
+              </GuiInElement>
+              <FilterElement Id="49362753-ce01-46f4-bfb1-c55b75486bc3" Height="60" Width="82.600000000000009" X="675" Y="420" Remark="" />
+              <StaircaseLightElement Id="3ec2c50b-e1ea-4e29-9b70-b04dcb5287b0" Height="60" Width="94.643333333333345" X="795" Y="450" Remark="" />
+              <StaircaseLightElement Id="2ae002d5-afa6-420c-8a3e-f29307243140" Height="60" Width="143.14000000000001" X="930" Y="420" Remark="" />
+              <OrElement Id="5c63db70-a4df-4d97-8e17-6bc72d6d262d" Height="60" Width="76" X="1170" Y="330" Remark="" />
+              <GuiOutElement Id="2de3c8e6-9843-40a6-a251-65b7a0539f8c" Height="60" Width="92.083333333333329" X="1305" Y="330" Remark="">
+                <Parameters>
+                  <Parameter Value="Rcv" />
+                  <Parameter Value="Rcv [Bit]" />
+                  <Parameter />
+                </Parameters>
+              </GuiOutElement>
+              <Label Id="dcbeb70d-7657-4753-a438-5c6be06c2d4c" Height="60" Width="290" X="1725" Y="165" Remark="" Angle="0" Text="v1.0; 27.06.2026 (12:27)" />
+            </Elements>
+            <Links />
+          </Worksheet>
+        </Worksheets>
+      </Layout>
+    </LogicEngine>
+  </Content>
+</CFB>
