@@ -62,7 +62,7 @@ The core architectural block of this library. An incoming Rcv pulse is required 
 Generates a periodic 1-second Rcv pulse at the output as long as the Enable input is HIGH. Useful for watchdog functions.
 * **Example:** Specifying **3600** for *Delay Time* will generate a Rcv pulse **every hour**.
 * **Technical Note / Tip:** To ensure the generator starts automatically after a system boot, connect the Enable input to the output of a Calendar block output. If the Enable input is permanently wired to static HIGH, the generator will not auto-start after a reboot without external interaction.
-  * **IN:** `Enable [Bit]`, `Delay Time [sec] (Internally multiplied by 2)`
+  * **IN:** `Enable [Bit]`, `Delay Time [sec]`
   * **OUT:** `Rcv [Bit]`
   * **Downloads:**
     * 📄 Download ABA Function Block File: [Generate-Rcv.fbxml](fb/Generate-Rcv.fbxml)
