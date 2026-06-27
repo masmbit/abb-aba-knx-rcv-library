@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LogicEngine>
+  <Runtime Version="2">
+    <Composites>
+      <Composite Id="7c667a15-a044-43e8-85ed-e468ec24d68b">
+        <MetaInfo Title="ReTrigger-Rcv" Description="ReTrigger-Rcv v.1.0 (24.06.2026)" Author="manni" LicenseAgreement="Forwards the input pulse to the output&#xD;&#xA;and generates a second 1s pulse at the&#xD;&#xA;output after a 1s delay.&#xD;&#xA;&#xD;&#xA;IN: Rcv [Bit]&#xD;&#xA;OUT: Rcv [Bit]" Version="1.0" Keywords="" />
+        <Content>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</Content>
+      </Composite>
+      <Composite Id="f12ef49d-0b2b-4273-b19f-da617bcd8007">
+        <MetaInfo Title="Hysteresis-Rcv" Description="Hysteresis-Rcv v1.2 (27.06.2026)" Author="manni" LicenseAgreement="Controls the system using an &#xD;&#xA;absolute switch-on point and a &#xD;&#xA;relative switch-off point based &#xD;&#xA;on the hysteresis values.&#xD;&#xA;&#xD;&#xA;Provides both direct (Cooling) &#xD;&#xA;and inverted (Heating) outputs.&#xD;&#xA;&#xD;&#xA;Cooling Out (ON) / Heating Out (OFF):&#xD;&#xA;Current Temperature ≥ (Target &#xD;&#xA;+ On Hysteresis)&#xD;&#xA;&#xD;&#xA;Cooling Out (OFF) / Heating Out (ON):&#xD;&#xA;Current Temperature &lt; (Target &#xD;&#xA;+ On Hysteresis - Off Hysteresis)&#xD;&#xA;&#xD;&#xA;Generates a Rcv pulse whenever&#xD;&#xA;either output state changes.&#xD;&#xA;&#xD;&#xA;Example:&#xD;&#xA;- Target: 20°C&#xD;&#xA;- On Hysteresis: 1K (Threshold: 21°C)&#xD;&#xA;- Off Hysteresis: 3K (Threshold: 18°C)&#xD;&#xA;&#xD;&#xA;Cooling Output behavior:&#xD;&#xA;≥ 21°C → Cooling ON&#xD;&#xA;20°C to 19°C → Cooling no change&#xD;&#xA;≤ 18°C → Cooling OFF&#xD;&#xA;&#xD;&#xA;Heating Output behavior:&#xD;&#xA;≤ 18°C → Heating ON&#xD;&#xA;19°C to 20°C → Heating no change&#xD;&#xA;≥ 21°C → Heating OFF&#xD;&#xA;&#xD;&#xA;IN: Target Temperature [16 Bit]&#xD;&#xA;IN: Current Temperature [16 Bit]&#xD;&#xA;IN: On Hysteresis [16 Bit] (Kelvin)&#xD;&#xA;IN: Off Hysteresis [16 Bit] (Kelvin)&#xD;&#xA;OUT: Cooling [Bit] (signal)&#xD;&#xA;OUT: Heating [Bit] (signal)&#xD;&#xA;OUT: Rcv [Bit] (pulse)" Version="1.2" Keywords="" />
+        <Content>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</Content>
+      </Composite>
+    </Composites>
+    <Elements>
+      <CompositeElement Id="fcb9ecb7-ff21-4658-ae7e-553497dd3509" Name="ReTrigger-Rcv">
+        <Ins>
+          <In Id="27a3cc65-dcc1-420c-8181-b45014d5b242" Index="0" Visible="true" DataType="1.*" />
+        </Ins>
+        <Outs>
+          <Out Id="2e70516f-9d69-47d5-90c1-6251788f6131" Index="0" Visible="true" DataType="1.*" />
+        </Outs>
+        <Template Id="7c667a15-a044-43e8-85ed-e468ec24d68b">
+          <Id Orig="92c7746c-e681-42f0-af29-3875be5747fb" New="6213228c-d77a-4b6e-bf20-b53752c48c97" />
+          <Id Orig="49362753-ce01-46f4-bfb1-c55b75486bc3" New="d2d472ea-9e56-46e1-ae82-7530d4642056" />
+          <Id Orig="3ec2c50b-e1ea-4e29-9b70-b04dcb5287b0" New="af62900c-c54b-4aff-9417-3d0f31d660ce" />
+          <Id Orig="2ae002d5-afa6-420c-8a3e-f29307243140" New="1f8376d7-f35a-4676-9baa-c628e033abad" />
+          <Id Orig="5c63db70-a4df-4d97-8e17-6bc72d6d262d" New="ba0b2d6a-17d6-4de3-bf36-64ca7e9293f4" />
+          <Id Orig="2de3c8e6-9843-40a6-a251-65b7a0539f8c" New="1c7b6982-7101-4f86-a3de-cc8fd99ac036" />
+        </Template>
+      </CompositeElement>
+      <GateElement Id="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" Name="GATE">
+        <Ins>
+          <In Id="3070d0f1-36f0-4a27-8e9d-de1c324a749b" Index="0" Visible="true" DataType="1.*" />
+          <In Id="f147789b-e08b-46b3-8797-ee9e8afcec28" Index="1" Visible="true" DataType="1.*" />
+        </Ins>
+        <Outs>
+          <Out Id="e1be51ad-b661-458c-9313-7ce01f0ba557" Index="0" Visible="true" DataType="1.*" />
+        </Outs>
+        <Parameters />
+      </GateElement>
+      <OutElement Id="0c900e54-becf-48b9-bd34-1a27df67a865" Name="KNX OUT" DataType="OneBit" CoNumber="2" Datapoint="1">
+        <Ins>
+          <In Id="87259519-3de1-4eaa-ad32-172bbb0fe38a" Index="0" Visible="true" DataType="1.*" />
+        </Ins>
+        <Parameters />
+      </OutElement>
+      <InElement Id="8a5e8da0-a6a6-4477-981e-4be9d65abb8e" Name="KNX IN: On Hysteresis" DataType="TwoByteFloat" CoNumber="1" Datapoint="9">
+        <Outs>
+          <Out Id="ccbae8a1-f583-48b8-ab0b-24b97430ba44" Index="0" Visible="true" DataType="9.*" />
+          <Out Id="bafe818a-3fa1-462a-b43c-a08b93963aad" Index="1" Visible="true" DataType="1.*" />
+        </Outs>
+        <Parameters />
+      </InElement>
+      <CompositeElement Id="1801ce41-1eac-4223-b7a6-d39e3a360d5b" Name="Hysteresis-Rcv">
+        <Ins>
+          <In Id="ac883865-dff2-458e-8cef-863b948c833a" Index="0" Visible="true" DataType="9.*" />
+          <In Id="b62ad893-fbe3-4b85-9c29-ab6a742bbc85" Index="1" Visible="true" DataType="9.*" />
+          <In Id="7e133b3d-579c-4331-9a4b-c0d2d3264f74" Index="2" Visible="true" DataType="9.*" />
+          <In Id="eedf1a4d-127d-464d-9978-84c1af5faea8" Index="3" Visible="true" DataType="9.*" />
+        </Ins>
+        <Outs>
+          <Out Id="734f56da-1716-42ca-b481-658240fa2be9" Index="0" Visible="true" DataType="1.*" />
+          <Out Id="49d5ec0e-fdab-43bc-8cb1-c49ee540f2a3" Index="1" Visible="true" DataType="1.*" />
+          <Out Id="f659cf2a-f537-46b7-9075-f94d1a4532cf" Index="2" Visible="true" DataType="1.*" />
+        </Outs>
+        <Template Id="f12ef49d-0b2b-4273-b19f-da617bcd8007">
+          <Id Orig="cc7a6fe8-8237-4c92-a3d9-df8f508658ef" New="a3e97d1b-e1e1-4b55-a175-85a54c27dfca" />
+          <Id Orig="4a6862f7-adf4-48a6-bb1c-4d83c223bdf1" New="4ce951e2-4b7d-4076-be7d-9555ad14a101" />
+          <Id Orig="40c0ae8c-59a1-4591-a6b4-a3f3b7801403" New="c9793560-94e0-495d-b267-90835a3af33d" />
+          <Id Orig="9d84275d-91be-473d-81f4-0d802e83430c" New="08a19cab-cec9-4d20-b0aa-796d0fdb81e9" />
+          <Id Orig="5cba773b-564a-44cb-b469-4d04c038e45f" New="8ae3ae7a-f042-4c28-b4c4-c65e1eb6ec91" />
+          <Id Orig="b70df8aa-e4d8-45d8-8054-ddd731abbb6e" New="f0c7c9d1-0756-4dfc-9b2e-7ae49ca2de06" />
+          <Id Orig="70d61163-30e4-45f8-9f5e-e8a78b7640a6" New="3f7127bd-f491-45b0-a42d-274e5db19621" />
+          <Id Orig="d2098398-41e8-4be8-bc7d-8b1048ffcc1f" New="094c6cf4-2f21-455b-a4d1-c3ae32cd6540" />
+          <Id Orig="b139aa50-bfff-411a-931b-75bd95fd1f56" New="13109f78-2827-4c29-8508-0fbec1eb2550" />
+          <Id Orig="9c5ecb35-ed12-4038-bb2b-2f4f471de5e5" New="640cf3b9-119b-49ee-ad75-f125be72a99c" />
+          <Id Orig="a5c96c85-992d-4afd-865f-d60d3856e7e2" New="9485a4cd-d1c1-4586-8bff-891a1ffe71a7" />
+          <Id Orig="a4e66449-7f60-4a38-9181-690443b03d0f" New="5c73db90-1a1c-4755-8feb-c85b0c39e764" />
+          <Id Orig="79be0fbd-7d2b-4d30-97ae-0cdce2006d4b" New="be5e7de5-98e1-4381-bd99-cc3ec1d4ec13" />
+          <Id Orig="6594238d-045a-4d1a-ad10-74ad509a9ebc" New="143b5cc8-be1a-42e9-89ef-f5f2ed4faf1e" />
+          <Id Orig="82aa2a62-8798-4e31-838b-3275ffe46f4f" New="c01843c1-50d4-4763-a618-efcad079f96e" />
+          <Id Orig="2a4c139c-610d-4c7e-b0dd-0cdfd039c4c8" New="f21b3a65-28b7-4da9-80e0-07349cd5e281" />
+          <Id Orig="10c6f8c8-02e5-4395-a66a-3ff1adc349f5" New="a0778b0c-fcc2-4d30-8aea-7964d8a4cdfa" />
+          <Id Orig="bfe2a209-efae-47f7-a218-8a7bba41c409" New="53979aa7-e820-4192-905a-5a1987bcdf19" />
+        </Template>
+      </CompositeElement>
+      <InElement Id="8bb228c5-f2cd-4e1c-a405-daa787e8eb58" Name="KNX IN: Target-Temperature" DataType="TwoByteFloat" CoNumber="3" Datapoint="9">
+        <Outs>
+          <Out Id="4fc171ce-cbff-4ac6-ba8e-ee76f9d670ae" Index="0" Visible="true" DataType="9.*" />
+          <Out Id="3ea6e2e0-dc1a-44b8-8dec-aff83ac26175" Index="1" Visible="true" DataType="1.*" />
+        </Outs>
+        <Parameters />
+      </InElement>
+      <InElement Id="e408e05c-b3b4-443d-bfdd-5085c868528d" Name="KNX IN: Aktual-Temperature" DataType="TwoByteFloat" CoNumber="4" Datapoint="9">
+        <Outs>
+          <Out Id="29cd699a-cba2-47a6-8dbf-64e6c14654e2" Index="0" Visible="true" DataType="9.*" />
+          <Out Id="44b2f805-f4ba-4c04-a6ef-e38e3650f71f" Index="1" Visible="true" DataType="1.*" />
+        </Outs>
+        <Parameters />
+      </InElement>
+      <InElement Id="492ab90d-b254-4834-bf5f-136324d77f70" Name="KNX IN: Off Hysteresis" DataType="TwoByteFloat" CoNumber="5" Datapoint="9">
+        <Outs>
+          <Out Id="7d1238f8-8de0-450b-b7b4-c83316cd9530" Index="0" Visible="true" DataType="9.*" />
+          <Out Id="900cc239-13a7-426b-bf11-973ece532220" Index="1" Visible="true" DataType="1.*" />
+        </Outs>
+        <Parameters />
+      </InElement>
+      <OrElement Id="dbf664ef-938e-46eb-bd17-4b7e35b6ff29" Name="Trigger-OR">
+        <Ins>
+          <In Id="b419a86a-197e-48b7-9753-d8e6a0d45f00" Index="0" Visible="true" DataType="1.*" />
+          <In Id="8e653412-b00a-4b18-8ee6-89f460f02d67" Index="1" Visible="true" DataType="1.*" />
+          <In Id="7e6e6e3e-9466-42ae-9827-ea6b324ceea0" Index="2" Visible="true" DataType="1.*" />
+          <In Id="21051e0d-7567-4a25-81ac-d300d87e12c2" Index="3" Visible="true" DataType="1.*" />
+          <In Id="59373f2b-588c-4bb1-af7d-e9c1e7f1bd11" Index="4" Visible="true" DataType="1.*" />
+        </Ins>
+        <Outs>
+          <Out Id="5e49f516-964c-4352-927d-3c98cc42e481" Index="0" Visible="true" DataType="1.*" />
+        </Outs>
+      </OrElement>
+    </Elements>
+    <Links>
+      <Link Id="00228ed0-27a6-4d4d-b3f7-cdf354e09843" ToElement="1801ce41-1eac-4223-b7a6-d39e3a360d5b" ToIndex="3" FromElement="492ab90d-b254-4834-bf5f-136324d77f70" FromIndex="0" />
+      <Link Id="43e9f840-6425-4b57-a4bc-ec29eb865914" ToElement="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" ToIndex="1" FromElement="fcb9ecb7-ff21-4658-ae7e-553497dd3509" FromIndex="0" />
+      <Link Id="b267a183-5042-4ace-a392-1d49fe68b0ed" ToElement="dbf664ef-938e-46eb-bd17-4b7e35b6ff29" ToIndex="2" FromElement="e408e05c-b3b4-443d-bfdd-5085c868528d" FromIndex="1" />
+      <Link Id="75a8a01d-04eb-4c2d-b9df-e7ff3e99a605" ToElement="1801ce41-1eac-4223-b7a6-d39e3a360d5b" ToIndex="1" FromElement="e408e05c-b3b4-443d-bfdd-5085c868528d" FromIndex="0" />
+      <Link Id="4577ce86-4250-4b80-92d9-3e33c4a0105d" ToElement="1801ce41-1eac-4223-b7a6-d39e3a360d5b" ToIndex="0" FromElement="8bb228c5-f2cd-4e1c-a405-daa787e8eb58" FromIndex="0" />
+      <Link Id="632f23c5-69d4-4928-a32d-0bc11769f884" ToElement="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" ToIndex="0" FromElement="1801ce41-1eac-4223-b7a6-d39e3a360d5b" FromIndex="0" />
+      <Link Id="5430f4b4-39a5-4eae-a923-09afecbc1810" ToElement="dbf664ef-938e-46eb-bd17-4b7e35b6ff29" ToIndex="4" FromElement="492ab90d-b254-4834-bf5f-136324d77f70" FromIndex="1" />
+      <Link Id="d9d49c18-acb4-4673-a986-74137d5da964" ToElement="0c900e54-becf-48b9-bd34-1a27df67a865" ToIndex="0" FromElement="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" FromIndex="0" />
+      <Link Id="b1aeb489-0e7f-468b-850a-8db4ea8b1cf9" ToElement="dbf664ef-938e-46eb-bd17-4b7e35b6ff29" ToIndex="1" FromElement="8bb228c5-f2cd-4e1c-a405-daa787e8eb58" FromIndex="1" />
+      <Link Id="45d6334b-591b-4d75-be8d-25cf2e9b83de" ToElement="dbf664ef-938e-46eb-bd17-4b7e35b6ff29" ToIndex="3" FromElement="8a5e8da0-a6a6-4477-981e-4be9d65abb8e" FromIndex="1" />
+      <Link Id="5d3ee565-bae7-4bef-94db-cc37906ab5be" ToElement="dbf664ef-938e-46eb-bd17-4b7e35b6ff29" ToIndex="0" FromElement="1801ce41-1eac-4223-b7a6-d39e3a360d5b" FromIndex="2" />
+      <Link Id="88064b21-a3df-4a8e-9b5f-56fd6067b147" ToElement="fcb9ecb7-ff21-4658-ae7e-553497dd3509" ToIndex="0" FromElement="dbf664ef-938e-46eb-bd17-4b7e35b6ff29" FromIndex="0" />
+      <Link Id="5616415e-e778-4ad9-95a8-f8cfd1bfdf36" ToElement="1801ce41-1eac-4223-b7a6-d39e3a360d5b" ToIndex="2" FromElement="8a5e8da0-a6a6-4477-981e-4be9d65abb8e" FromIndex="0" />
+    </Links>
+  </Runtime>
+  <Layout Version="2">
+    <Worksheets>
+      <Worksheet Id="07e1d85e-224a-4907-a728-1898f30e20a6" Name="Hysteresis-Rcv">
+        <Elements>
+          <CompositeElement Id="fcb9ecb7-ff21-4658-ae7e-553497dd3509" Height="60" Width="132.06666666666666" X="885" Y="210" Remark="" />
+          <GateElement Id="e7099fcb-f4a3-49fb-954c-fb3f4e3b1f05" Height="60" Width="76" X="1095" Y="120" Remark="" />
+          <OutElement Id="0c900e54-becf-48b9-bd34-1a27df67a865" Height="60" Width="89.74" X="1245" Y="120" Remark="" />
+          <CompositeElement Id="1801ce41-1eac-4223-b7a6-d39e3a360d5b" Height="77.240000000000009" Width="142.80666666666667" X="450" Y="120" Remark="" />
+          <InElement Id="8bb228c5-f2cd-4e1c-a405-daa787e8eb58" Height="60" Width="197.00333333333333" X="45" Y="120" Remark="" />
+          <InElement Id="e408e05c-b3b4-443d-bfdd-5085c868528d" Height="60" Width="197.94666666666666" X="45" Y="195" Remark="" />
+          <InElement Id="8a5e8da0-a6a6-4477-981e-4be9d65abb8e" Height="60" Width="165.35666666666668" X="45" Y="270" Remark="" />
+          <InElement Id="492ab90d-b254-4834-bf5f-136324d77f70" Height="60" Width="166.07999999999998" X="45" Y="345" Remark="" />
+          <OrElement Id="dbf664ef-938e-46eb-bd17-4b7e35b6ff29" Height="94.550000000000011" Width="106.84333333333335" X="705" Y="195" Remark="" />
+        </Elements>
+        <Links>
+          <Link Id="75a8a01d-04eb-4c2d-b9df-e7ff3e99a605" SnapPoints="207.05,0 126.919801084991,0 126.919801084991,63.57 0,63.57 234.95,150.1" />
+          <Link Id="5616415e-e778-4ad9-95a8-f8cfd1bfdf36" SnapPoints="239.64,0 184.016130198915,0 184.016130198915,121.53 0,121.53 202.36,167.14" />
+          <Link Id="00228ed0-27a6-4d4d-b3f7-cdf354e09843" SnapPoints="238.92,0 217.292513562387,0 217.292513562387,179.48 0,179.48 203.08,184.19" />
+          <Link Id="b1aeb489-0e7f-468b-850a-8db4ea8b1cf9" SnapPoints="463,63.85 42.2115732368898,63.85 42.2115732368898,0 0,0 234,161.33" />
+          <Link Id="45d6334b-591b-4d75-be8d-25cf2e9b83de" SnapPoints="494.64,0 439.045063291139,0 439.045063291139,51.96 0,51.96 202.36,259.37" />
+          <Link Id="5430f4b4-39a5-4eae-a923-09afecbc1810" SnapPoints="493.92,0 460.301555153707,0 460.301555153707,109.87 0,109.87 203.08,276.46" />
+        </Links>
+      </Worksheet>
+    </Worksheets>
+  </Layout>
+</LogicEngine>
