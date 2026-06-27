@@ -36,7 +36,9 @@ The core architectural block of this library. An incoming Rcv pulse is required 
 * **Safety/Delayed Pulse ([ReTriggerDelay-Rcv](fb/ReTriggerDelay-Rcv.fbxml) Variant):** Automatically pushes a second 1-second pulse after the specified delay time. This guarantees that even if a complex calculation takes a few milliseconds longer, the final value is safely captured and forced onto the KNX bus.
   * **IN:** `Rcv [Bit]`, `Delay [sec]`
   * **OUT:** `Rcv [Bit]`
-  * **Downloads:** [📄 KNX Example File](example/ReTrigger-Rcv.xml)
+  * **Downloads:**
+    * 📄 Download ABA Function Block File: [ReTrigger-Rcv.fbxml](fb/ReTrigger-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [ReTrigger-Rcv.xml](example/ReTrigger-Rcv.xml)
 
 ![ReTrigger-Rcv Example](example/ReTrigger-Rcv.jpg)
 
@@ -48,7 +50,9 @@ Generates a periodic 1-second Rcv pulse at the output as long as the Enable inpu
 * **Technical Note / Tip:** To ensure the generator starts automatically after a system boot, connect the Enable input to the output of a Calendar block output. If the Enable input is permanently wired to static HIGH, the generator will not auto-start after a reboot without external interaction.
   * **IN:** `Enable [Bit]`, `Delay Time [sec] (Internally multiplied by 2)`
   * **OUT:** `Rcv [Bit]`
-  * **Downloads:** [📄 KNX Example File](example/Generate-Rcv.xml)
+  * **Downloads:**
+    * 📄 Download ABA Function Block File: [Generate-Rcv.fbxml](fb/Generate-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [Generate-Rcv.xml](example/Generate-Rcv.xml)
 
 ![Generate-Rcv Example](example/Generate-Rcv.jpg)
 
@@ -58,7 +62,9 @@ Generates a periodic 1-second Rcv pulse at the output as long as the Enable inpu
 Forward the input signal changes to the output and additionally generate a Rcv pulse. Perfectly suited for triggering subsequent gates on any state transition.
   * **IN:** `I [Bit] (signal)`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
-  * **Downloads:** [📄 KNX Example File](example/OnOff-Detect-Rcv.xml)
+  * **Downloads:**
+    * 📄 Download ABA Function Block File: [OnOff-Detect-Rcv.fbxml](fb/OnOff-Detect-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [OnOff-Detect-Rcv.xml](example/OnOff-Detect-Rcv.xml)
 
 ![OnOff-Detect-Rcv Example](example/OnOff-Detect-Rcv.jpg)
 
@@ -70,7 +76,9 @@ Forward the input signal changes to the output and additionally generate a Rcv p
 Standard ON-delay. An incoming Rcv pulse is required to evaluate the input state. The output switches to HIGH only if the input remains HIGH for the specified On-Delay time. A LOW state at the input switches the output to LOW immediately.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
-  * **Downloads:** [📄 KNX Example File](example/On-Delay-Rcv.xml)
+  * **Downloads:**
+    * 📄 Download ABA Function Block File: [On-Delay-Rcv.fbxml](fb/On-Delay-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [On-Delay-Rcv.xml](example/On-Delay-Rcv.xml)
 
 ![On-Delay-Rcv Example](example/On-Delay-Rcv.jpg)
 
@@ -80,7 +88,9 @@ Standard ON-delay. An incoming Rcv pulse is required to evaluate the input state
 Standard OFF-delay. An incoming Rcv pulse is required to evaluate the input state. A HIGH state at the input switches the output to HIGH immediately. The output switches back to LOW only if the input remains LOW for the specified Off-Delay time.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
-  * **Downloads:** [📄 KNX Example File](example/Off-Delay-Rcv.xml)
+  * **Downloads:**
+    * 📄 Download ABA Function Block File: [Off-Delay-Rcv.fbxml](fb/Off-Delay-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [Off-Delay-Rcv.xml](example/Off-Delay-Rcv.xml)
 
 ![Off-Delay-Rcv Example](example/Off-Delay-Rcv.jpg)
 
@@ -90,7 +100,9 @@ Standard OFF-delay. An incoming Rcv pulse is required to evaluate the input stat
 Standard interlocked ON/OFF delay. An incoming Rcv pulse is required to evaluate the input state. The output switches to HIGH only after the input remains HIGH for the specified On-Delay time. To switch it back to LOW, the input must remain LOW for the specified Off-Delay time. Short signal fluctuations at the input are filtered out and do not affect the output.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
-  * **Downloads:** [📄 KNX Example File](example/OnOff-Delay-Rcv.xml)
+  * **Downloads:**
+    * 📄 Download ABA Function Block File: [OnOff-Delay-Rcv.fbxml](fb/OnOff-Delay-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [OnOff-Delay-Rcv.xml](example/OnOff-Delay-Rcv.xml)
 
 ![OnOff-Delay-Rcv Example](example/OnOff-Delay-Rcv.jpg)
 
@@ -100,7 +112,9 @@ Standard interlocked ON/OFF delay. An incoming Rcv pulse is required to evaluate
 An incoming Rcv pulse is required to evaluate the input state. If the input remains ON for the specified On-Delay time and then turns OFF, the output switches ON for the specified Off-Delay time.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `On-Delay [sec]`, `Off-Delay [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
-  * **Downloads:** [📄 KNX Example File](example/OnOff-Delay-Trigger-Rcv.xml)
+  * **Downloads:**
+    * 📄 Download ABA Function Block File: [OnOff-Delay-Trigger-Rcv.fbxml](fb/OnOff-Delay-Trigger-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [OnOff-Delay-Trigger-Rcv.xml](example/OnOff-Delay-Trigger-Rcv.xml)
 
 ![OnOff-Delay-Trigger-Rcv Example](example/OnOff-Delay-Trigger-Rcv.jpg)
 
@@ -110,7 +124,9 @@ An incoming Rcv pulse is required to evaluate the input state. If the input rema
 Limits the HIGH state of the output to the specified timeout period. An incoming Rcv pulse is required to evaluate the input state. After the timeout expires, the output switches to LOW even if the input remains HIGH. Forwards incoming Rcv pulses from the input to the output, and generates an additional Rcv pulse whenever the output state changes.
   * **IN:** `I [Bit] (signal)`, `Rcv [Bit] (pulse)`, `Timeout [sec]`
   * **OUT:** `O [Bit] (signal)`, `Rcv [Bit] (pulse)`
-  * **Downloads:** [📄 KNX Example File](example/OnTime-Limit-Rcv.xml)
+  * **Downloads:**
+    * 📄 Download ABA Function Block File: [OnTime-Limit-Rcv.fbxml](fb/OnTime-Limit-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [OnTime-Limit-Rcv.xml](example/OnTime-Limit-Rcv.xml)
 
 ![OnTime-Limit-Rcv Example](example/OnTime-Limit-Rcv.jpg)
 
@@ -140,18 +156,9 @@ Controls the system using an absolute switch-on point and a relative switch-off 
 
 * **IN:** `Target Temperature [16 Bit]`, `Current Temperature [16 Bit]`, `On Hysteresis [16 Bit] (Kelvin)`, `Off Hysteresis [16 Bit] (Kelvin)`
 * **OUT:** `Cooling [Bit] (signal)`, `Heating [Bit] (signal)`, `Rcv [Bit] (pulse)`
-* **Downloads:** [📄 KNX Example File](example/Hysteresis-Rcv.xml)
+* **Downloads:**
 
-![Hysteresis-Rcv Example](example/Hysteresis-Rcv.jpg)
+    * 📄 Download ABA Function Block File: [Hysteresis-Rcv.fbxml](fb/Hysteresis-Rcv.fbxml)
+    * ⚙️ Download ABA Example File: [Hysteresis-Rcv.xml](example/Hysteresis-Rcv.xml)
 
----
-
-## 💾 Installation & Usage
-1. Download the exported function blocks (`.fbxml`) from the `fb/` directory.
-2. Download corresponding project wires and gate integration files from the `example/` directory.
-3. Open the **ABB Graphical Logic Editor**.
-4. Import the blocks into your workspace.
-5. Connect your KNX Group Addresses (GAs) to the inputs/outputs.
-
-## 📄 License
-This project is licensed under the MIT License - feel free to use it in all your commercial and private KNX projects!
+![OnTime-Limit-Rcv Example](example/Hysteresis-Rcv.jpg)
