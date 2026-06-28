@@ -40,7 +40,7 @@ However, real-world execution inside the ABA/S1.2.1 controller introduces two ma
 
 ---
 
-### 🔹 Pulse Blocks (Impuls)
+### 〰️ Pulse Blocks (Impuls)
 
 <a name="1-retrigger-rcv"></a>
 #### 1. ReTrigger-Rcv
@@ -85,7 +85,7 @@ Forward the input signal changes to the output and additionally generate a Rcv p
 
 ---
 
-### 🔹 Timer Blocks (Timer)
+### 🕒 Timer Blocks (Timer)
 
 <a name="4-on-delay-rcv"></a>
 #### 4. On-Delay-Rcv
@@ -152,7 +152,7 @@ Limits the HIGH state of the output to the specified timeout period. An incoming
 
 ---
 
-### 🔹 Temperature Control (Temperatur)
+### 🌡️ Temperature Control (Temperatur)
 
 <a name="9-hysteresis-rcv"></a>
 #### 9. Hysteresis-Rcv
