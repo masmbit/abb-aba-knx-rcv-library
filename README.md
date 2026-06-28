@@ -11,7 +11,7 @@ This library introduces a standardized **Rcv (Receive/Receiver)** pulse-logic ar
 
 ---
 
-## 🧠 Why the `Rcv` Architecture is Critical for ABB ABA/S1.2.1
+## ⚡Why the `Rcv` Architecture is Critical for ABB ABA/S1.2.1
 
 In the ABB Graphical Logic Editor, standard logic blocks do not automatically force a recalculation or bus transmission upon every internal state change. To guarantee that outputs are reliably transmitted to the KNX bus, you must use **ABB Gate Blocks**. These Gates have a unique property: **they strictly require a Control Pulse (`Rcv`) to force a recalculation and refresh the output.**
 
